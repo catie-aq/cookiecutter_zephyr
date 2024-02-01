@@ -1,0 +1,18 @@
+name: "build"
+
+on: [push, pull_request]
+                
+jobs:
+    test:
+        runs-on: self-hosted
+        container:
+            image: python:3.10
+        steps:
+        - uses: actions/checkout@v2
+        - name: Install cookiecutter
+          run: |
+            pip install cookiecutter
+        - name: Test cookiecutter
+          run: |
+            cookiecutter . --no-input
+      
