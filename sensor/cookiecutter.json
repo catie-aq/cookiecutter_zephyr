@@ -1,0 +1,9 @@
+{
+    "manufacturer": "Name of the manufacturer",
+    "short_manufacturer": "Short name of the manufacturer",
+    "reference": "Reference",
+    "description": "Description of the component",
+    "project_slug": "{{ cookiecutter.short_manufacturer.lower().replace(' ', '_') }}_{{ cookiecutter.reference.lower().replace(' ', '_') }}",
+    "copyright_holder": "CATIE",
+    "copyright_year": "{% now 'utc', '%Y' %}"
+}
