@@ -14,5 +14,5 @@ jobs:
             pip install cookiecutter
         - name: Test cookiecutter
           run: |
-            cookiecutter . --no-input
+            cookiecutter . --no-input --accept-hooks no
       
