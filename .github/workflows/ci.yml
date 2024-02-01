@@ -8,7 +8,7 @@ jobs:
         container:
             image: python:3.10
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - name: Install cookiecutter
           run: |
             pip install cookiecutter
