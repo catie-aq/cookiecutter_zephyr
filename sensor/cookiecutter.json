@@ -6,6 +6,10 @@
     "project_slug": "{{ cookiecutter.short_manufacturer.lower().replace(' ', '_') }}-{{ cookiecutter.reference.lower().replace(' ', '_') }}",
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
+    "create_repository": [
+        true,
+        false
+    ],
     "__prompts__": {
         "manufacturer": "Name of the manufacturer",
         "short_manufacturer": "Short name of the manufacturer",
@@ -13,6 +17,7 @@
         "description": "Description of the component",
         "project_slug": "Slug of the project",  
         "copyright_holder": "Copyright holder",
-        "copyright_year": "Copyright year"
+        "copyright_year": "Copyright year",
+        "create_repository": "Initialize a git repository"
     }
 }
