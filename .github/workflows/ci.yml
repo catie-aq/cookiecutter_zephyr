@@ -15,4 +15,3 @@ jobs:
         - name: Test cookiecutter
           run: |
             cookiecutter . --no-input --accept-hooks no
-      
