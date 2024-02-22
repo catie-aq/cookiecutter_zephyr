@@ -22,10 +22,10 @@ cookiecutter gh:catie-aq/cookiecutter_zephyr-driver
 
 ### Sensor
 - `manufacturer`: Name of the manufacturer
-- `short_manufacturer`: "Short name of the manufacturer
-- `reference`: "Reference of the component
-- `description`: "Description of the component
-- `project_slug`: "Slug of the project
-- `copyright_holder`: "Copyright holder
-- `copyright_year`: "Copyright year
-- `create_repository`: "Initialize a git repository
+- `short_manufacturer`: Short name of the manufacturer
+- `reference`: Reference of the component
+- `description`: Description of the component
+- `project_slug`: Slug of the project
+- `copyright_holder`: Copyright holder
+- `copyright_year`: Copyright year
+- `create_repository`: Initialize a git repository
