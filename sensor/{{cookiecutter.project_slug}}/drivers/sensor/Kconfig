@@ -3,6 +3,6 @@
 
 if SENSOR
 
-rsource "{{cookiecutter.__reference}}"
+rsource "{{cookiecutter.__reference}}/Kconfig"
 
 endif # SENSOR
