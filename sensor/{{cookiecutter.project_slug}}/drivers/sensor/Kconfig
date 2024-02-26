@@ -3,6 +3,6 @@
 
 if SENSOR
 
-rsource "{{cookiecutter.reference}}"
+rsource "{{cookiecutter.__reference}}"
 
 endif # SENSOR

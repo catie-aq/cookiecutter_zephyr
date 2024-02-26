@@ -3,4 +3,4 @@
 
 zephyr_library()
 
-zephyr_library_sources({{cookiecutter.reference}}.c)
+zephyr_library_sources({{cookiecutter.__reference}}.c)

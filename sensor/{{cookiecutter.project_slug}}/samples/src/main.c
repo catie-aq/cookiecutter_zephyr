@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	const struct device *const dev = DEVICE_DT_GET_ANY({{cookiecutter.short_manufacturer.lower()}}_{{cookiecutter.reference.lower()}});
+	const struct device *const dev = DEVICE_DT_GET_ANY({{cookiecutter.short_manufacturer|lower}}_{{cookiecutter.__reference}});
 	struct sensor_value value;
 
 	if (!device_is_ready(dev)) {
@@ -19,7 +19,7 @@ int main(void)
 
 	while (1) {
 		sensor_sample_fetch(dev);
-        // Example for ambiant stemperature sensor
+        // Example for ambiant temperature sensor
 		sensor_channel_get(dev, SENSOR_CHAN_AMBIENT_TEMP, &value);
 		printk("Value: %d.%06d\n", value.val1, value.val2);
 		k_sleep(K_MSEC(1000));
