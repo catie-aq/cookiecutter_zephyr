@@ -3,7 +3,7 @@
     "short_manufacturer": "CATIE",
     "reference": "XXX",
     "description": "Description of the component",
-    "project_slug": "{{ cookiecutter.short_manufacturer.lower().replace(' ', '_') }}-{{ cookiecutter.reference.lower().replace(' ', '_') }}",
+    "project_slug": "{{ cookiecutter.short_manufacturer|lower|replace(' ', '_') }}-{{ cookiecutter.reference|lower|replace(' ', '_') }}",
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
     "create_repository": [
