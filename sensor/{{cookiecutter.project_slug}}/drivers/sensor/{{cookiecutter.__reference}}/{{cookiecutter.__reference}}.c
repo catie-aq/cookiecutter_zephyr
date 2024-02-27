@@ -5,6 +5,7 @@
 
 #define DT_DRV_COMPAT {{cookiecutter.short_manufacturer|lower}}_{{cookiecutter.__reference}}
 
+#include <zephyr/drivers/sensor.h>
 #include <zephyr/logging/log.h>
 
 #include "{{cookiecutter.__reference}}.h"
@@ -25,8 +26,8 @@ static int {{cookiecutter.__reference}}_attr_set(const struct device *dev, enum 
 
 static int {{cookiecutter.__reference}}_sample_fetch(const struct device *dev, enum sensor_channel chan)
 {
-	struct {{cookiecutter.__reference}}_data *dev_data = dev->data;
-	const struct {{cookiecutter.__reference}}_cfg *dev_cfg = dev->config;
+	struct {{cookiecutter.__reference}}_data *data = dev->data;
+	const struct {{cookiecutter.__reference}}_config *config = dev->config;
 
 	return 0;
 }
@@ -34,7 +35,7 @@ static int {{cookiecutter.__reference}}_sample_fetch(const struct device *dev, e
 static int {{cookiecutter.__reference}}_channel_get(const struct device *dev, enum sensor_channel chan,
 			      struct sensor_value *val)
 {
-	struct {{cookiecutter.__reference}}_data *dev_data = dev->data;
+	struct {{cookiecutter.__reference}}_data *data = dev->data;
 
     // TODO: Update val with the sensor value
 	val->val1 = 0;
@@ -45,8 +46,8 @@ static int {{cookiecutter.__reference}}_channel_get(const struct device *dev, en
 
 static int {{cookiecutter.__reference}}_init(const struct device *dev)
 {
-	const struct {{cookiecutter.__reference}}_cfg *cfg = dev->config;
-	struct {{cookiecutter.__reference}}_data *dev_data = dev->data;
+	const struct {{cookiecutter.__reference}}_config *config = dev->config;
+	struct {{cookiecutter.__reference}}_data *data = dev->data;
 
 	return 0;
 }
@@ -58,7 +59,7 @@ static const struct sensor_driver_api {{cookiecutter.__reference}}_driver_api = 
 };
 
 #define {{cookiecutter.__reference.upper()}}_INIT(n)                                                                             \
-	static struct {{cookiecutter.__reference}}_cfg {{cookiecutter.__reference}}_config_##n = {                                             \
+	static struct {{cookiecutter.__reference}}_config {{cookiecutter.__reference}}_config_##n = {                                             \
 	};                                                                                         \
 	static struct {{cookiecutter.__reference}}_data {{cookiecutter.__reference}}_data_##n;                                                 \
 	DEVICE_DT_INST_DEFINE(n, {{cookiecutter.__reference}}_init, NULL, &{{cookiecutter.__reference}}_data_##n, &{{cookiecutter.__reference}}_config_##n,          \
