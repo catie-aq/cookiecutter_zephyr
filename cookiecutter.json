@@ -9,6 +9,11 @@
             "path": "./shield",
             "title": "Shield",
             "description": "Template for Zephyr shield"
+        },
+        "workspace application": {
+            "path": "./workspace_application",
+            "title": "Workspace application",
+            "description": "Template for Zephyr workspace application"
         }
     }
 }

@@ -1,0 +1,19 @@
+{
+    "application": "Example Application",
+    "description": "Zephyr Example Application",
+    "project_slug": "{{ cookiecutter.application|lower|replace(' ', '_') }}",
+    "copyright_holder": "CATIE",
+    "copyright_year": "{% now 'utc', '%Y' %}",
+    "create_repository": [
+        true,
+        false
+    ],
+    "__prompts__": {
+        "application": "Application name",
+        "description": "Description of the application",
+        "project_slug": "Slug of the project",  
+        "copyright_holder": "Copyright holder",
+        "copyright_year": "Copyright year",
+        "create_repository": "Initialize a git repository"
+    }
+}
