@@ -1,0 +1,17 @@
+{
+    "board_name": "Zest_example",
+    "project_slug": "{{ cookiecutter.board_name|lower|replace(' ', '_')|replace('-', '_') }}",
+    "copyright_holder": "CATIE",
+    "copyright_year": "{% now 'utc', '%Y' %}",
+    "create_repository": [
+        true,
+        false
+    ],
+    "__prompts__": {
+        "board_name": "Name of the board",
+        "project_slug": "Slug of the project",
+        "copyright_holder": "Copyright holder",
+        "copyright_year": "Copyright year",
+        "create_repository": "Initialize a git repository"
+    }
+}

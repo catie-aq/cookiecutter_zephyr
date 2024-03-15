@@ -4,6 +4,11 @@
             "path": "./sensor",
             "title": "Driver sensor",
             "description": "Template for Zephyr sensor driver"
+        },
+        "shield": {
+            "path": "./shield",
+            "title": "Shield",
+            "description": "Template for Zephyr shield"
         }
     }
 }
