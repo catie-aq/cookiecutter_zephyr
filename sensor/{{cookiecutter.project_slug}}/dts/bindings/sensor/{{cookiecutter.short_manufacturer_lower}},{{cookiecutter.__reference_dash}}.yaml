@@ -4,6 +4,6 @@
 description: |
     {{cookiecutter.manufacturer}} {{cookiecutter.__reference}} {{cookiecutter.description.lower()}}.
 
-compatible: "{{cookiecutter.short_manufacturer.lower()}},{{cookiecutter.__reference|replace('_','-')}}"
+compatible: "{{cookiecutter.short_manufacturer.lower()}},{{cookiecutter.__reference_dash}}"
 
 include: [sensor-device.yaml]
