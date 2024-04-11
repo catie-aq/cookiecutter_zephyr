@@ -1,0 +1,9 @@
+# Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_ZEST_CORE_STM32L4A6RG
+
+config BOARD
+	default "zest_core_stm32l4a6rg"
+
+endif # BOARD_ZEST_CORE_STM32L4A6RG

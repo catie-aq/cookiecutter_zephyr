@@ -10,6 +10,11 @@
             "title": "Shield",
             "description": "Template for Zephyr shield"
         },
+		"core": {
+            "path": "./core",
+            "title": "Core",
+            "description": "Template for Zephyr Zest Core board"
+        },
         "workspace application": {
             "path": "./workspace_application",
             "title": "Workspace application",
