@@ -1,6 +1,6 @@
-# Zest_Core_STM32L4A6RG
+# {{cookiecutter.board_name}}
 
-[Zest_Core_STM32L4A6RG](https://6tron.io/zest_core/zest_core_stm32l4a6rg_3_1_0) board support for Zephyr OS.
+[{{cookiecutter.board_name}}](https://6tron.io/zest_core/{{cookiecutter.__documentation_link}}) board support for Zephyr OS.
 
 ## Dependencies
 
@@ -9,7 +9,7 @@ This module depends on:
 
 ## Supported Features
 
-The Zephyr Zest_Core_STM32L4A6RG board configuration supports the following hardware features:
+The Zephyr {{cookiecutter.board_name}} board configuration supports the following hardware features:
 
 | Interface | Controller                                                                  | Driver/Component                               |
 | :-------- | :-------------------------------------------------------------------------- | :--------------------------------------------- |
@@ -48,6 +48,6 @@ See [STMicroelectronics vendor bindings](https://docs.zephyrproject.org/latest/b
 
 ## Usage
 
-1. Add the Zest_Core_STM32L4A6RG board to your workspace using the [6TRON module](https://github.com/catie-aq/zephyr_6tron-manifest.git).
+1. Add the {{cookiecutter.board_name}} board to your workspace using the [6TRON module](https://github.com/catie-aq/zephyr_6tron-manifest.git).
 2. Compile and flash application using `west` tool:
-   - Board name: `zest_core_stm32l4a6rg`
+   - Board name: `{{cookiecutter.__board_name_lower}}`
