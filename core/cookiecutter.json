@@ -1,0 +1,20 @@
+{
+    "board_name": "Zest_Core_example",
+    "board_name_lower": "{{cookiecutter.board_name|lower}}",
+    "board_arch": "arm",
+    "project_slug": "{{ cookiecutter.board_name|lower|replace(' ', '_')|replace('-', '_') }}",
+    "copyright_holder": "CATIE",
+    "copyright_year": "{% now 'utc', '%Y' %}",
+    "create_repository": [
+        true,
+        false
+    ],
+    "__prompts__": {
+        "board_name": "Name of the Zest Core board",
+        "board_arch": "Type of SoC architecture",
+        "project_slug": "Slug of the project",
+        "copyright_holder": "Copyright holder",
+        "copyright_year": "Copyright year",
+        "create_repository": "Initialize a git repository"
+    }
+}
