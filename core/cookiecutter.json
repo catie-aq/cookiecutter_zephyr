@@ -1,8 +1,10 @@
 {
     "board_soc": "STM32L4A6RG",
-    "__board_soc_lower": "{{cookiecutter.board_soc|lower}}",
     "board_soc_arch": "arm",
+    "__board_soc_lower": "{{cookiecutter.board_soc|lower}}",
     "jlink_device": "{{cookiecutter.__board_soc_lower}}",
+    "zephyr_board_soc": "STM32L4A6XX",
+    "zephyr_board_soc_serie": "STM32L4X",
     "board_name": "Zest_Core_{{cookiecutter.board_soc}}",
     "__board_name_lower": "{{cookiecutter.board_name|lower}}",
     "__board_name_lower_underscore": "{{cookiecutter.__board_name_lower|replace(' ', '_')|replace('-', '_')}}",
@@ -21,10 +23,12 @@
     "__prompts__": {
         "board_soc": "Name of the board SoC, eg: ",
         "board_soc_arch": "Type of SoC architecture, eg: ",
-        "jlink_device": "Name of the jlink device",
+        "jlink_device": "Name of the jlink device to debug/flash the SoC",
+        "zephyr_board_soc": "Name of the SoC defined in Zephyr, for kconfig setup, eg: ",
+        "zephyr_board_soc_serie": "Name of the SoC SERIE defined in Zephyr for, kconfig setup, eg: ",
         "board_name": "Name of the Zest Core board",
         "board_version": "Last valid version of the board, for documentation",
-        "project_slug": "Slug of the project (name of the repo)",
+        "project_slug": "Slug of the project (or name of the repo)",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a git repository"
