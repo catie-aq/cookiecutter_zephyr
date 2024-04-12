@@ -9,8 +9,8 @@
 #include "sixtron_connector.dtsi"
 
 / {
-	model = "CATIE Zest Core STM32l4A6RG board";
-	compatible = "catie,zest-core-stm32l4a6rg";
+	model = "{{cookiecutter.copyright_holder}} {{cookiecutter.board_name}} board";
+	compatible = "{{cookiecutter.__copyright_holder_lower}},zest-core-stm32l4a6rg";
 
 	chosen {
 		zephyr,console = &usart3;

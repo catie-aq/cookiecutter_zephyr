@@ -1,6 +1,6 @@
 # {{cookiecutter.board_name}}
 
-[{{cookiecutter.board_name}}](https://6tron.io/zest_core/{{cookiecutter.__documentation_link}}) board support for Zephyr OS.
+[{{cookiecutter.board_name}}](https://6tron.io/zest_core/{{cookiecutter.__board_name_with_version}}) board support for Zephyr OS.
 
 ## Dependencies
 
