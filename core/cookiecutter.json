@@ -2,26 +2,33 @@
     "board_soc": "STM32L4A6RG",
     "__board_soc_lower": "{{cookiecutter.board_soc|lower}}",
     "board_soc_arch": "arm",
+    
     "board_name": "Zest_Core_{{cookiecutter.board_soc}}",
     "__board_name_lower": "{{cookiecutter.board_name|lower}}",
+    "__board_name_lower_underscore": "{{cookiecutter.__board_name_lower|replace(' ', '_')|replace('-', '_')}}",
+    "__board_name_lower_dash":"{{cookiecutter.__board_name_lower_underscore|replace('_', '-')}}",
+    
     "board_version": "1.0.0",
-    "project_slug": "{{cookiecutter.__board_name_lower|replace(' ', '_')|replace('-', '_')}}",
-    "__documentation_link": "{{cookiecutter.project_slug}}_{{ cookiecutter.board_version|replace('.','_')}}",
+    "project_slug": "zephyr_{{cookiecutter.__board_name_lower_dash}}",
+    "__board_name_with_version": "{{cookiecutter.__board_name_lower_underscore}}_{{ cookiecutter.board_version|replace('.','_')}}",
+    
     "copyright_holder": "CATIE",
+    "__copyright_holder_lower": "{{cookiecutter.copyright_holder|lower}}",
     "copyright_year": "{% now 'utc', '%Y' %}",
+    
     "create_repository": [
         true,
         false
     ],
+    
     "__prompts__": {
         "board_soc": "Name of the board SoC, eg: ",
         "board_soc_arch": "Type of SoC architecture, eg: ",
         "board_name": "Name of the Zest Core board",
         "board_version": "Last valid version of the board, for documentation",
-        "project_slug": "Slug of the project",
+        "project_slug": "Slug of the project (name of the repo)",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a git repository"
-    },
-    "__root__": "zephyr_{{cookiecutter.__board_name_lower|replace('_', '-')}}"
+    }
 }
