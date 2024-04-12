@@ -2,6 +2,7 @@
     "board_soc": "STM32L4A6RG",
     "__board_soc_lower": "{{cookiecutter.board_soc|lower}}",
     "board_soc_arch": "arm",
+    "jlink_device": "{{cookiecutter.__board_soc_lower}}",
     
     "board_name": "Zest_Core_{{cookiecutter.board_soc}}",
     "__board_name_lower": "{{cookiecutter.board_name|lower}}",
@@ -24,6 +25,7 @@
     "__prompts__": {
         "board_soc": "Name of the board SoC, eg: ",
         "board_soc_arch": "Type of SoC architecture, eg: ",
+        "jlink_device": "Name of the jlink device",
         "board_name": "Name of the Zest Core board",
         "board_version": "Last valid version of the board, for documentation",
         "project_slug": "Slug of the project (name of the repo)",
