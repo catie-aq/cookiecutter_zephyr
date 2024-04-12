@@ -4,13 +4,13 @@
  */
 
 /dts-v1/;
-#include <st/l4/stm32l4a6Xg.dtsi>
-#include <st/l4/stm32l4a6rgtx-pinctrl.dtsi>
+#include <path/to/soc.dtsi> // from "zephyr/dts/arm/" folder, example: <st/l4/stm32l4a6Xg.dtsi> 
+#include <path/to/soc-pinctrl.dtsi> // from "modules/hal/type_of_soc/dts" folder, example: <st/l4/stm32l4a6rgtx-pinctrl.dtsi>
 #include "sixtron_connector.dtsi"
 
 / {
 	model = "{{cookiecutter.copyright_holder}} {{cookiecutter.board_name}} board";
-	compatible = "{{cookiecutter.__copyright_holder_lower}},zest-core-stm32l4a6rg";
+	compatible = "{{cookiecutter.__copyright_holder_lower}},{{cookiecutter.__board_name_lower_dash}}";
 
 	chosen {
 		zephyr,console = &usart3;
