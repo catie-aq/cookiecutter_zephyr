@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  zephyr-application:
+    strategy:
+      matrix:
+        application: [ "app" ]
+    uses: catie-aq/zephyr_workflows/.github/workflows/application.yml@main
+    with:
+      application: ${{ matrix.application }}
+
+    secrets:
+      personal_access_token: ${{ secrets.PAT }}
