@@ -4,6 +4,6 @@
 if BOARD_{{cookiecutter.__board_name_upper_underscore}}
 
 config BOARD
-	default "BOARD_{{cookiecutter.__board_name_lower_underscore}}"
+	default "{{cookiecutter.__board_name_lower_underscore}}"
 
 endif # BOARD_{{cookiecutter.__board_name_upper_underscore}}
