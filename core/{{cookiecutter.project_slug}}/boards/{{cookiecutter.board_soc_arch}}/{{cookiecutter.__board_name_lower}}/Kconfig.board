@@ -1,6 +1,6 @@
 # Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
 # SPDX-License-Identifier: Apache-2.0
 
-config BOARD_ZEST_CORE_STM32L4A6RG
-	bool "Zest Core STM32L4A6RG Development Board"
-	depends on SOC_STM32L4A6XX
+config BOARD_{{cookiecutter.__board_name_upper_underscore}}
+	bool "{{cookiecutter.board_name}} Development Board"
+	depends on SOC_<NAME-OF-THE-SOC-IN-ZEPHYR-KCONFIG-DATABASE>

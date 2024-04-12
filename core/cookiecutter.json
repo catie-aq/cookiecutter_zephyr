@@ -3,25 +3,21 @@
     "__board_soc_lower": "{{cookiecutter.board_soc|lower}}",
     "board_soc_arch": "arm",
     "jlink_device": "{{cookiecutter.__board_soc_lower}}",
-    
     "board_name": "Zest_Core_{{cookiecutter.board_soc}}",
     "__board_name_lower": "{{cookiecutter.board_name|lower}}",
     "__board_name_lower_underscore": "{{cookiecutter.__board_name_lower|replace(' ', '_')|replace('-', '_')}}",
-    "__board_name_lower_dash":"{{cookiecutter.__board_name_lower_underscore|replace('_', '-')}}",
-    
+    "__board_name_lower_dash": "{{cookiecutter.__board_name_lower_underscore|replace('_', '-')}}",
+    "__board_name_upper_underscore": "{{cookiecutter.__board_name_lower_underscore|upper}}",
     "board_version": "1.0.0",
     "project_slug": "zephyr_{{cookiecutter.__board_name_lower_dash}}",
     "__board_name_with_version": "{{cookiecutter.__board_name_lower_underscore}}_{{ cookiecutter.board_version|replace('.','_')}}",
-    
     "copyright_holder": "CATIE",
     "__copyright_holder_lower": "{{cookiecutter.copyright_holder|lower}}",
     "copyright_year": "{% now 'utc', '%Y' %}",
-    
     "create_repository": [
         true,
         false
     ],
-    
     "__prompts__": {
         "board_soc": "Name of the board SoC, eg: ",
         "board_soc_arch": "Type of SoC architecture, eg: ",
