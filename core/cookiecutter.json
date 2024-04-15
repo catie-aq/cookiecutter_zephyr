@@ -25,7 +25,7 @@
         "board_soc_arch": "Type of SoC architecture, eg: ",
         "jlink_device": "Name of the jlink device to debug/flash the SoC",
         "zephyr_board_soc": "Name of the SoC defined in Zephyr, for kconfig setup, eg: ",
-        "zephyr_board_soc_serie": "Name of the SoC SERIE defined in Zephyr for, kconfig setup, eg: ",
+        "zephyr_board_soc_serie": "Name of the SoC SERIE defined in Zephyr, for kconfig setup, eg: ",
         "board_name": "Name of the Zest Core board",
         "board_version": "Last valid version of the board, for documentation",
         "project_slug": "Slug of the project (or name of the repo)",
