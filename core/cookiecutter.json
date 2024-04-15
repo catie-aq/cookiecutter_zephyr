@@ -12,15 +12,13 @@
     "__board_name_upper_underscore": "{{cookiecutter.__board_name_lower_underscore|upper}}",
     "board_default_version": "3.1.1",
     "board_all_compatible_versions": "3.0.0 3.1.0 3.1.1",
+    "zest_full_size": false,
     "project_slug": "zephyr_{{cookiecutter.__board_name_lower_dash}}",
     "__board_name_with_version": "{{cookiecutter.__board_name_lower_underscore}}_{{ cookiecutter.board_default_version|replace('.','_')}}",
     "copyright_holder": "CATIE",
     "__copyright_holder_lower": "{{cookiecutter.copyright_holder|lower}}",
     "copyright_year": "{% now 'utc', '%Y' %}",
-    "create_repository": [
-        true,
-        false
-    ],
+    "create_repository": true,
     "__prompts__": {
         "board_soc": "Name of the board SoC, eg: ",
         "board_soc_arch": "Type of SoC architecture, eg: ",
@@ -30,9 +28,10 @@
         "board_name": "Name of the Zest Core board",
         "board_default_version": "Last valid version of the board",
         "board_all_compatible_versions": "List all valid versions of the board compatible with this driver (separate by a space)",
+        "zest_full_size": "Is the zest core a full size board with 2 different sixtron bus ?",
         "project_slug": "Slug of the project (or name of the repo)",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
-        "create_repository": "Initialize a git repository"
+        "create_repository": "Initialize a git repository ?"
     }
 }
