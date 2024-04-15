@@ -68,8 +68,7 @@
                    <DIO35 0 &gpioa 0 0>,
                    <DIO36 0 &gpioa 0 0>;
     };
-
-    {% if cookiecutter.zest_full_size -%}
+{% if cookiecutter.zest_full_size %}
     sixtron_connector_2: sixtron-connector-2 {
         compatible = "sixtron-bus";
         #gpio-cells = <2>;
@@ -132,7 +131,7 @@
                    <DIO35 0 &gpioa 0 0>,
                    <DIO36 0 &gpioa 0 0>;
     };
-    {%- endif %}
+{% endif %}
 };
 
 //sixtron_connector_1_can: &fdcan3 {};
@@ -142,8 +141,7 @@
 //sixtron_connector_1_pwm: &timer1 {};
 //sixtron_connector_1_adc: &adc1 {};
 //sixtron_connector_1_dac: &dac1 {};
-
-{% if cookiecutter.zest_full_size -%}
+{% if cookiecutter.zest_full_size %}
 //sixtron_connector_2_can: &fdcan3 {};
 //sixtron_connector_2_i2c: &i2c3 {};
 //sixtron_connector_2_uart: &usart2 {};
@@ -151,8 +149,7 @@
 //sixtron_connector_2_pwm: &timer1 {};
 //sixtron_connector_2_adc: &adc1 {};
 //sixtron_connector_2_dac: &dac1 {};
-{%- endif %}
-
+{% endif %}
 //sixtron_can: &sixtron_connector_1_can {};
 //sixtron_i2c: &sixtron_connector_1_i2c {};
 //sixtron_uart: &sixtron_connector_1_uart {};
