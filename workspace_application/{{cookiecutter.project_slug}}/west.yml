@@ -2,12 +2,45 @@
 # SPDX-License-Identifier: Apache-2.0
 
 manifest:
+  self:
+    path: 6tron-project
+
   remotes:
     - name: zephyrproject-rtos
       url-base: https://github.com/zephyrproject-rtos
+    - name: catie-6tron
+      url-base: https://github.com/catie-aq
 
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: main
+      revision: v3.5.0
+      import:
+        name-blocklist:
+          - hal_altera
+          - hal_ambiq
+          - hal_atmel
+          - hal_espressif
+          - hal_ethos_u
+          - hal_gigadevice
+          - hal_infineon
+          - hal_intel
+          - hal_microchip
+          - hal_nuvoton
+          - hal_nxp
+          - hal_openisa
+          - hal_quicklogic
+          - hal_renesas
+          - hal_rpi_pico
+          - hal_silabs
+          - hal_st
+          - hal_telink
+          - hal_ti
+          - hal_wurthelektronik
+          - hal_xtensa
+    - name: 6tron-manifest
+      remote: catie-6tron
+      repo-path: zephyr_6tron-manifest
+      revision: v3.5.0+202402
+      path: 6tron/6tron-manifest
       import: true
