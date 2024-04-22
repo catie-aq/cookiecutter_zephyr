@@ -8,7 +8,8 @@
 
 	"runArgs": ["--privileged"],
 	"mounts": [
-		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind",
-		"source=/dev/ttyUSB0,target=/dev/ttyUSB0,type=bind"
-	],
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+		// Mounts the ttyUSB0 device to the container
+		// "source=/dev/ttyUSB0,target=/dev/ttyUSB0,type=bind"
+	]
 }
