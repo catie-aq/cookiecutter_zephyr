@@ -13,8 +13,8 @@
 	compatible = "{{cookiecutter.__copyright_holder_lower}},{{cookiecutter.__board_name_lower_dash}}";
 
 	chosen {
-		zephyr,console = &usart3;
-		zephyr,shell-uart = &usart3;
+		zephyr,console = &UART_OBJECT;
+		zephyr,shell-uart = &UART_OBJECT;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
@@ -22,7 +22,7 @@
 	leds {
 		compatible = "gpio-leds";
 		led_0: led_0 {
-			gpios = <&gpiob 11 GPIO_ACTIVE_HIGH>;
+			gpios = <&GPIO_PORT PIN_NUMBER GPIO_ACTIVE_HIGH>;
 			label = "User LED0";
 		};
 	};
@@ -31,7 +31,7 @@
 		compatible = "gpio-keys";
 		user_button: button {
 			label = "User Button";
-			gpios = <&gpioh 3 GPIO_ACTIVE_LOW>;
+			gpios = <&GPIO_PORT PIN_NUMBER GPIO_ACTIVE_LOW>;
 		};
 	};
 
