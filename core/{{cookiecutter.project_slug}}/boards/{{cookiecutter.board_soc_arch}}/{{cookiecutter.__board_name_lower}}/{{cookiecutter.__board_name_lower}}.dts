@@ -4,8 +4,8 @@
  */
 
 /dts-v1/;
-#include <path/to/soc.dtsi> // from "zephyr/dts/type_of_soc/" folder, example: <st/l4/stm32l4a6Xg.dtsi>
-#include <path/to/soc-pinctrl.dtsi> // from "modules/hal/type_of_soc/dts" folder, example: <st/l4/stm32l4a6rgtx-pinctrl.dtsi>
+#include <path/to/zephyr/soc/dts.dtsi>
+#include <path/to/module/hal/soc-pinctrl.dtsi>
 #include "sixtron_connector.dtsi"
 
 / {
@@ -39,93 +39,4 @@
 		led0 = &led_0;
 		sw0 = &user_button;
 	};
-};
-
-&clk_hsi {
-	status = "okay";
-};
-
-&pll {
-	div-m = <1>;
-	mul-n = <10>;
-	div-p = <7>;
-	div-q = <2>;
-	div-r = <2>;
-	clocks = <&clk_hsi>;
-	status = "okay";
-};
-
-&rcc {
-	clocks = <&pll>;
-	clock-frequency = <DT_FREQ_M(80)>;
-	ahb-prescaler = <1>;
-	apb1-prescaler = <1>;
-	apb2-prescaler = <1>;
-};
-
-&usart3 {
-	pinctrl-0 = <&usart3_tx_pc4 &usart3_rx_pc5>;
-	pinctrl-names = "default";
-	current-speed = <115200>;
-	status = "okay";
-};
-
-&i2c3 {
-	pinctrl-0 = <&i2c3_scl_pc0 &i2c3_sda_pc1>;
-	pinctrl-names = "default";
-	status = "okay";
-};
-
-&usart2 {
-	pinctrl-0 = <&usart2_tx_pa2 &usart2_rx_pa3>;
-	pinctrl-names = "default";
-	current-speed = <115200>;
-	status = "okay";
-};
-
-&spi2 {
-	pinctrl-0 = <&spi2_sck_pb10 &spi2_miso_pb14 &spi2_mosi_pb15>;
-	pinctrl-names = "default";
-	cs-gpios = <&gpiob 2 GPIO_ACTIVE_LOW>;
-	status = "okay";
-};
-
-&timers1 {
-	status = "okay";
-
-	pwm1: pwm {
-		pinctrl-0 = <&tim1_ch3_pa10>;
-		pinctrl-names = "default";
-		status = "okay";
-	};
-
-	pwm2: pwm {
-		pinctrl-0 = <&tim1_ch2_pa9>;
-		pinctrl-names = "default";
-		status = "okay";
-	};
-};
-
-&timers3 {
-	status = "okay";
-
-	pwm3: pwm {
-		pinctrl-0 = <&tim3_ch3_pb0>;
-		pinctrl-names = "default";
-		status = "okay";
-	};
-};
-
-&adc1 {
-	pinctrl-0 = <&adc1_in3_pc2 &adc1_in4_pc3 &adc1_in5_pa0 &adc1_in6_pa1>;
-	pinctrl-names = "default";
-	st,adc-clock-source = <SYNC>;
-	st,adc-prescaler = <4>;
-	status = "okay";
-};
-
-&dac1 {
-	pinctrl-0 = <&dac1_out2_pa5>;
-	pinctrl-names = "default";
-	status = "okay";
 };
