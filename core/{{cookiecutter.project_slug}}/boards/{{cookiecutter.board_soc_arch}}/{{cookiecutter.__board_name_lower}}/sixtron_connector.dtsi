@@ -157,3 +157,5 @@ sixtron_spi: &sixtron_connector_1_spi {};
 sixtron_pwm: &sixtron_connector_1_pwm {};
 sixtron_adc: &sixtron_connector_1_adc {};
 sixtron_dac: &sixtron_connector_1_dac {};
+
+sixtron_connector: &sixtron_connector_1 {};
