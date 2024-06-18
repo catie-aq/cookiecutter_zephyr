@@ -1,19 +1,20 @@
-identifier: "{{cookiecutter.__board_name_lower}}"
-name: "{{cookiecutter.board_name}}"
-type: "mcu"
-arch: "{{cookiecutter.__board_soc_lower}}"
+identifier: {{cookiecutter.__board_name_lower}}
+name: {{cookiecutter.board_name}}
+type: mcu
+arch: {{cookiecutter.__board_soc_lower}}
 toolchain:
   - zephyr
   - gnuarmemb
-ram: 320
-flash: 1024
+ram: <RAM_IN_KBYTES>
+flash: <FLASH_IN_KBYTES>
 supported:
-  - sixtron_i2c
-  - sixtron_gpio
-  - sixtron_spi
   - gpio
   - i2c
   - spi
   - pwm
   - counter
-vendor: "{{cookiecutter.__copyright_holder_lower}}"
+testing:
+  ignore_tags:
+    - net
+    - bluetooth
+vendor: {{cookiecutter.__copyright_holder_lower}}
