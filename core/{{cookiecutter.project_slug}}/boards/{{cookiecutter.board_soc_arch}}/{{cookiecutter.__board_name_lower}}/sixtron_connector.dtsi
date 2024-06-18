@@ -134,26 +134,26 @@
 {% endif %}
 };
 
-//sixtron_connector_1_can: &fdcan3 {};
-//sixtron_connector_1_i2c: &i2c3 {};
-//sixtron_connector_1_uart: &usart2 {};
-//sixtron_connector_1_spi: &spi1 {};
-//sixtron_connector_1_pwm: &timer1 {};
-//sixtron_connector_1_adc: &adc1 {};
-//sixtron_connector_1_dac: &dac1 {};
+sixtron_connector_1_can: &dummy_fdcan {};
+sixtron_connector_1_i2c: &dummy_i2c {};
+sixtron_connector_1_uart: &dummy_usart {};
+sixtron_connector_1_spi: &dummy_spi {};
+sixtron_connector_1_pwm: &dummy_timer {};
+sixtron_connector_1_adc: &dummy_adc {};
+sixtron_connector_1_dac: &dummy_dac {};
 {% if cookiecutter.zest_full_size %}
-//sixtron_connector_2_can: &fdcan3 {};
-//sixtron_connector_2_i2c: &i2c3 {};
-//sixtron_connector_2_uart: &usart2 {};
-//sixtron_connector_2_spi: &spi1 {};
-//sixtron_connector_2_pwm: &timer1 {};
-//sixtron_connector_2_adc: &adc1 {};
-//sixtron_connector_2_dac: &dac1 {};
+sixtron_connector_2_can: &dummy_fdcan {};
+sixtron_connector_2_i2c: &dummy_i2c {};
+sixtron_connector_2_uart: &dummy_usart {};
+sixtron_connector_2_spi: &dummy_spi {};
+sixtron_connector_2_pwm: &dummy_timer {};
+sixtron_connector_2_adc: &dummy_adc {};
+sixtron_connector_2_dac: &dummy_dac {};
 {% endif %}
-//sixtron_can: &sixtron_connector_1_can {};
-//sixtron_i2c: &sixtron_connector_1_i2c {};
-//sixtron_uart: &sixtron_connector_1_uart {};
-//sixtron_spi: &sixtron_connector_1_spi {};
-//sixtron_pwm: &sixtron_connector_1_pwm {};
-//sixtron_adc: &sixtron_connector_1_adc {};
-//sixtron_dac: &sixtron_connector_1_dac {};
+sixtron_can: &sixtron_connector_1_can {};
+sixtron_i2c: &sixtron_connector_1_i2c {};
+sixtron_uart: &sixtron_connector_1_uart {};
+sixtron_spi: &sixtron_connector_1_spi {};
+sixtron_pwm: &sixtron_connector_1_pwm {};
+sixtron_adc: &sixtron_connector_1_adc {};
+sixtron_dac: &sixtron_connector_1_dac {};
