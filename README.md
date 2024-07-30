@@ -15,7 +15,7 @@ pipx install cookiecutter
 Generate a new Zephyr OS driver from template:
 
 ```shell
-cookiecutter gh:catie-aq/cookiecutter_zephyr-driver
+cookiecutter gh:catie-aq/cookiecutter_zephyr
 ```
 
 ## Template variables
