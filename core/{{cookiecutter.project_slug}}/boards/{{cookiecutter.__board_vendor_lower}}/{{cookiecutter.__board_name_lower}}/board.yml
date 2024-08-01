@@ -1,0 +1,11 @@
+board:
+  name: {{cookiecutter.__board_name_lower_underscore}}
+  vendor: {{cookiecutter.__board_vendor_lower}}
+  socs:
+    - name: {{cookiecutter.__zephyr_board_soc_lower}}
+  revision:
+    format: "major.minor.patch"
+    default: "{{cookiecutter.board_default_version}}"
+    exact: true
+    revisions:
+      - name: "{{cookiecutter.board_default_version}}"

@@ -1,9 +1,6 @@
 # Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
 # SPDX-License-Identifier: Apache-2.0
 
-CONFIG_SOC_SERIES_{{cookiecutter.zephyr_board_soc_serie}}=y
-CONFIG_SOC_{{cookiecutter.zephyr_board_soc}}=y
-
 # enable uart driver
 CONFIG_SERIAL=y
 

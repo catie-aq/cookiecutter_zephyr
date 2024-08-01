@@ -1,7 +1,7 @@
 identifier: {{cookiecutter.__board_name_lower}}
 name: {{cookiecutter.board_name}}
 type: mcu
-arch: {{cookiecutter.__board_soc_lower}}
+arch: {{cookiecutter.board_soc_arch}}
 toolchain:
   - zephyr
   - gnuarmemb
