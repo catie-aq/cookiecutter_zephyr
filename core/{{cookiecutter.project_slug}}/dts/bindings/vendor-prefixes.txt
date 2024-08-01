@@ -1,0 +1,1 @@
+{{cookiecutter.__board_vendor_lower}} {{cookiecutter.vendor_description}}
