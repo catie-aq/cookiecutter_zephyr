@@ -13,7 +13,7 @@
 		"core": {
             "path": "./core",
             "title": "Core",
-            "description": "Template for Zephyr Zest Core board"
+            "description": "Template for Zephyr Zest_Core board"
         },
         "workspace application": {
             "path": "./workspace_application",
