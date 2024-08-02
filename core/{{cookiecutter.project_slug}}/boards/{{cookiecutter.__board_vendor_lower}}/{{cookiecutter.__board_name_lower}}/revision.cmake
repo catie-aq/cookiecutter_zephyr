@@ -4,5 +4,5 @@
 board_check_revision(
   FORMAT MAJOR.MINOR.PATCH
   DEFAULT_REVISION {{cookiecutter.board_default_version}}
-  VALID_REVISIONS {{cookiecutter.board_all_compatible_versions}}
+  VALID_REVISIONS {{cookiecutter.board_default_version}}
 )
