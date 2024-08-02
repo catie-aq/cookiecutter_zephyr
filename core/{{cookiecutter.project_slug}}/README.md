@@ -44,7 +44,7 @@ The Zephyr {{cookiecutter.board_name}} board configuration supports the followin
 | IWDG      | on-chip                                                                     | watchdog                                       |
 | WWDG      | on-chip                                                                     | watchdog                                       |
 
-See [STMicroelectronics vendor bindings](https://docs.zephyrproject.org/latest/build/dts/api/bindings.html#dt-vendor-st) for additional information.
+See [<VENDOR_NAME> vendor bindings](https://docs.zephyrproject.org/latest/build/dts/api/bindings.html#<VENDOR_NAME>) for additional information.
 
 ## Usage
 
