@@ -33,10 +33,10 @@
         "board_name": "Name of the Zest Core board",
         "board_default_version": "Last valid version of the board (default revision)",
         "board_all_compatible_versions": "List all valid versions of the board compatible with this driver (separate by a space)",
-        "zest_full_size": "Is the zest core a full size board with 2 different sixtron bus ?",
+        "zest_full_size": "Is the zest core a full size board with 2 different sixtron bus?",
         "project_slug": "Slug of the project (or name of the repo)",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
-        "create_repository": "Initialize a git repository ?"
+        "create_repository": "Initialize a git repository?"
     }
 }
