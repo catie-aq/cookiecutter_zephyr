@@ -37,7 +37,7 @@ The Zephyr {{cookiecutter.board_name}} board configuration supports the followin
 | TIMER     | on-chip                                                                     | counter, pwm, timer                            |
 | UART      | on-chip                                                                     | serial                                         |
 | USART     | on-chip                                                                     | serial                                         |
-| USB       | [CP2102N](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) | console                                        |
+| USB       | [<SERIAL_ADAPTER_COMPONENT>](<LINK_TO_COMPONENT>)                           | console                                        |
 | USBOTG_FS | on-chip                                                                     | usb                                            |
 | VBAT      | on-chip                                                                     | sensor                                         |
 | VREF      | on-chip                                                                     | sensor                                         |
