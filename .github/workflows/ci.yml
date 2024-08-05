@@ -4,7 +4,7 @@ on: [push, pull_request]
                 
 jobs:
     test:
-        runs-on: self-hosted
+        runs-on: sonu-github-arc
         container:
             image: python:3.10
         steps:
