@@ -1,3 +1,3 @@
-# {{cookiecutter.manufacturer}} Sensor Driver
+# {{cookiecutter.vendor}} {{cookiecutter.reference}} Sensor Driver
 
-{{cookiecutter.manufacturer}} {{cookiecutter.__reference}} {{cookiecutter.description.lower()}} Zephyr OS driver.
+{{cookiecutter.description}} driver for Zephyr OS.

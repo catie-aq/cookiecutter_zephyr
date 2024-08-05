@@ -1,0 +1,9 @@
+# Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    {{cookiecutter.description}}
+
+compatible: "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}"
+
+include: [sensor-device.yaml]

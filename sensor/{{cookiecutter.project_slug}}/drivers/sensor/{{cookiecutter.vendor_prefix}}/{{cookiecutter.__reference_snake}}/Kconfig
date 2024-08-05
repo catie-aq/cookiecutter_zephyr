@@ -1,0 +1,9 @@
+# Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig {{cookiecutter.__reference_snake.upper()}}
+    bool "{{cookiecutter.description}}"
+    default y
+    depends on DT_HAS_{{cookiecutter.vendor_prefix.upper()}}_{{cookiecutter.__reference_snake.upper()}}_ENABLED
+    help
+      Enable driver for {{cookiecutter.description}}.
