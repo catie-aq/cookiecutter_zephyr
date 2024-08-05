@@ -30,16 +30,16 @@ def main():
     if {{cookiecutter.create_repository}}:
         create_repository()
 
-    print("Add this line to your manifest file:")
+    print(
+        SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR
+    )
+
+    print("Add these lines to your manifest file:")
     print(
         f"- name: {{cookiecutter.project_slug}}\n"
         f"    repo-path: zephyr_{{cookiecutter.project_slug}}\n"
         f"    revision: main\n"
-        f"    path: 6ton/{{cookiecutter.project_slug}}\n"
-    )
-
-    print(
-        SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR
+        f"    path: 6tron/{{cookiecutter.project_slug}}\n"
     )
 
 

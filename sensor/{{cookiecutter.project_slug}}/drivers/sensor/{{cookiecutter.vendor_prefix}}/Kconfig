@@ -1,8 +1,4 @@
 # Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
 # SPDX-License-Identifier: Apache-2.0
 
-if SENSOR
-
-rsource "{{cookiecutter.vendor_prefix}}/Kconfig"
-
-endif # SENSOR
+rsource "{{cookiecutter.__reference_snake}}/Kconfig"
