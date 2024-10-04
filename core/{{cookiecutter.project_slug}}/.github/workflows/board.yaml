@@ -1,0 +1,17 @@
+name: "Zephyr {{cookiecutter.board_name}} CI/CD"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  board-test:
+    uses: catie-aq/zephyr_workflows/.github/workflows/board.yml@main
+    with:
+      board: "{{cookiecutter.__board_name_lower_underscore}}"
+
+    secrets:
+      personal_access_token: ${{ "{{" }} secrets.CI_6TRON_ZEPHYR_RO {{ "}}" }}
