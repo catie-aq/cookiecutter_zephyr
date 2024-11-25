@@ -34,6 +34,14 @@ def main():
         SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR
     )
 
+    print("Add these lines to your manifest file:")
+    print(
+        f"- name: {{cookiecutter.project_slug}}\n"
+        f"    repo-path: zephyr_{{cookiecutter.project_slug}}\n"
+        f"    revision: main\n"
+        f"    path: 6tron/shields/{{cookiecutter.project_slug}}\n"
+    )
+
 
 if __name__ == "__main__":
     main()
