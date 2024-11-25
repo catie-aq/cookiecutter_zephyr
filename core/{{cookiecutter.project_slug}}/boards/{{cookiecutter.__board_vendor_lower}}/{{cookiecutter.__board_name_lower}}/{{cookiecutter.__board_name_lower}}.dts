@@ -6,6 +6,7 @@
 /dts-v1/;
 #include <path/to/zephyr/soc/dts.dtsi>
 #include <path/to/module/hal/soc-pinctrl.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include "sixtron_connector.dtsi"
 
 / {
@@ -32,6 +33,7 @@
 		user_button: button {
 			label = "User Button";
 			gpios = <&GPIO_PORT PIN_NUMBER GPIO_ACTIVE_LOW>;
+			zephyr,code = <INPUT_BTN_0>;
 		};
 	};
 
