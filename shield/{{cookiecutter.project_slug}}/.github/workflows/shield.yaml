@@ -1,0 +1,17 @@
+name: "Test shield"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  shield:
+    uses: catie-aq/zephyr_workflows/.github/workflows/shield.yml@main
+    with:
+      shield: "{{ cookiecutter.board_name_lower }}"
+
+    secrets:
+      personal_access_token: {% raw %}${{ secrets.CI_6TRON_ZEPHYR_RO }}{% endraw %}
