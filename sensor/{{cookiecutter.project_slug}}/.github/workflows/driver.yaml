@@ -1,4 +1,4 @@
-name: "Test board"
+name: "Test driver"
 
 on:
   push:
@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  board-test:
-    uses: catie-aq/zephyr_workflows/.github/workflows/board.yml@main
+  driver:
+    uses: catie-aq/zephyr_workflows/.github/workflows/driver.yml@main
     with:
-      board: "{{cookiecutter.__board_name_lower_underscore}}"
+      path: "samples"
 
     secrets:
       personal_access_token: {% raw %}${{ secrets.CI_6TRON_ZEPHYR_RO }}{% endraw %}
