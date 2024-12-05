@@ -41,6 +41,6 @@ manifest:
     - name: 6tron_manifest
       remote: catie-6tron
       repo-path: zephyr_6tron-manifest
-      revision: v3.7.0+202408
+      revision: v3.7.0+202412
       path: 6tron/6tron_manifest
       import: true
