@@ -15,3 +15,7 @@ repos:
       - id: pretty-format-json
         args: [--autofix, --indent=4, --no-ensure-ascii, --no-sort-keys]
       - id: detect-private-key
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 3.0.3
+    hooks:
+      - id: editorconfig-checker
