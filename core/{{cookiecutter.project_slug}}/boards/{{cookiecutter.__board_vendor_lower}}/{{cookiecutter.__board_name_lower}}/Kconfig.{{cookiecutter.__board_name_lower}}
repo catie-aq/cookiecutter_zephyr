@@ -2,4 +2,4 @@
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_{{cookiecutter.__board_name_upper_underscore}}
-	select SOC_{{cookiecutter.zephyr_board_soc}}
+	select SOC_{{cookiecutter.__zephyr_board_soc_upper}}
