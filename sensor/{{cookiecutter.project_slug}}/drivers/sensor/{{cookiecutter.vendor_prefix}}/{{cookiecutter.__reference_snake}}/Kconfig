@@ -4,6 +4,6 @@
 menuconfig {{cookiecutter.__reference_snake.upper()}}
     bool "{{cookiecutter.description}}"
     default y
-    depends on DT_HAS_{{cookiecutter.vendor_prefix.upper()}}_{{cookiecutter.__reference_snake.upper()}}_ENABLED
+    depends on DT_HAS_{{cookiecutter.__vendor_prefix_snake.upper()}}_{{cookiecutter.__reference_snake.upper()}}_ENABLED
     help
       Enable driver for {{cookiecutter.description}}.
