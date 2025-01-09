@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define DT_DRV_COMPAT {{cookiecutter.vendor_prefix}}_{{cookiecutter.__reference_snake}}
+#define DT_DRV_COMPAT {{cookiecutter.__vendor_prefix_snake}}_{{cookiecutter.__reference_snake}}
 
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/logging/log.h>

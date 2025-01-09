@@ -1,6 +1,7 @@
 {
     "vendor": "VENDOR",
     "vendor_prefix": "{{ cookiecutter.vendor|lower|replace(' ', '-')|replace('_', '-') }}",
+    "__vendor_prefix_snake": "{{ cookiecutter.vendor_prefix|replace('-', '_') }}",
     "reference": "REFERENCE",
     "__reference_snake": "{{ cookiecutter.reference|lower|replace(' ', '-')|replace('-', '_') }}",
     "__reference_dash": "{{cookiecutter.__reference_snake|replace('_','-')}}",
