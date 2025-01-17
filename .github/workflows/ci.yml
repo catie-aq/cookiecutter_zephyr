@@ -9,6 +9,9 @@ on:
                 
 jobs:
   test:
+    strategy:
+      matrix:
+        templates: [ "core", "sensor", "shield", "workspace_application" ]
     runs-on: sonu-github-arc
     container:
       image: python:3.10
@@ -19,4 +22,5 @@ jobs:
         pip install cookiecutter
     - name: Test cookiecutter
       run: |
+        cd ${{ matrix.templates }}
         cookiecutter . --no-input --accept-hooks no
