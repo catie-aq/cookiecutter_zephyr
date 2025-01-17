@@ -8,15 +8,15 @@ on:
   workflow_dispatch:
                 
 jobs:
-    test:
-        runs-on: sonu-github-arc
-        container:
-            image: python:3.10
-        steps:
-        - uses: actions/checkout@v3
-        - name: Install cookiecutter
-          run: |
-            pip install cookiecutter
-        - name: Test cookiecutter
-          run: |
-            cookiecutter . --no-input --accept-hooks no
+  test:
+    runs-on: sonu-github-arc
+    container:
+      image: python:3.10
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install cookiecutter
+      run: |
+        pip install cookiecutter
+    - name: Test cookiecutter
+      run: |
+        cookiecutter . --no-input --accept-hooks no
