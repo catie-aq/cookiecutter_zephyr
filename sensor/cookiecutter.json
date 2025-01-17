@@ -6,6 +6,12 @@
     "__reference_snake": "{{ cookiecutter.reference|lower|replace(' ', '-')|replace('-', '_') }}",
     "__reference_dash": "{{cookiecutter.__reference_snake|replace('_','-')}}",
     "sensor_type": "TYPE",
+    "bus": [
+        "I2C",
+        "SPI",
+        "SERIAL",
+        "NONE"
+    ],
     "description": "{{ cookiecutter.vendor }} {{ cookiecutter.reference }} {{ cookiecutter.sensor_type }} sensor",
     "project_slug": "{{ cookiecutter.vendor_prefix }}-{{ cookiecutter.__reference_dash }}",
     "copyright_holder": "CATIE",
@@ -19,6 +25,7 @@
         "vendor_prefix": "Manufacturer's short name, as in vendor-prefixes.txt",
         "reference": "Reference of the component",
         "sensor_type": "Type of sensor (e.g. temperature, humidity, etc.)",
+        "bus": "Bus type",
         "project_slug": "Project slug",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",

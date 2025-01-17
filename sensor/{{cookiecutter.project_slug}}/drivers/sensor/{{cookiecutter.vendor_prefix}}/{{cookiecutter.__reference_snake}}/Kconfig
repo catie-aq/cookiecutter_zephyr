@@ -5,5 +5,6 @@ menuconfig {{cookiecutter.__reference_snake.upper()}}
     bool "{{cookiecutter.description}}"
     default y
     depends on DT_HAS_{{cookiecutter.__vendor_prefix_snake.upper()}}_{{cookiecutter.__reference_snake.upper()}}_ENABLED
-    help
+{% if cookiecutter.bus != "NONE" %}    select {{cookiecutter.bus}}
+{% endif %}    help
       Enable driver for {{cookiecutter.description}}.
