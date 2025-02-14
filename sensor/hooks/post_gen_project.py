@@ -39,7 +39,7 @@ def main():
         f"- name: {{cookiecutter.project_slug}}\n"
         f"    repo-path: zephyr_{{cookiecutter.project_slug}}\n"
         f"    revision: main\n"
-        f"    path: 6tron/{{cookiecutter.project_slug}}\n"
+        f"    path: 6tron/drivers/{{cookiecutter.project_slug}}\n"
     )
 
 
