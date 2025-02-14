@@ -16,7 +16,7 @@
     "__board_name_upper_underscore": "{{cookiecutter.__board_name_lower_underscore|upper}}",
     "board_default_version": "1.0.0",
     "zest_full_size": false,
-    "project_slug": "zephyr_{{cookiecutter.__board_name_lower_dash}}",
+    "project_slug": "{{cookiecutter.__board_name_lower_dash}}",
     "__board_name_with_version": "{{cookiecutter.__board_name_lower_underscore}}_{{ cookiecutter.board_default_version|replace('.','_')}}",
     "copyright_holder": "{{cookiecutter.board_vendor}}",
     "__copyright_holder_lower": "{{cookiecutter.copyright_holder|lower}}",
