@@ -20,9 +20,6 @@
         true,
         false
     ],
-    "_copy_without_render": [
-        ".github/workflows/build.yaml"
-    ],
     "__prompts__": {
         "application": "Application name",
         "description": "Description of the application",
