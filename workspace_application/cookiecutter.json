@@ -2,6 +2,18 @@
     "application": "Example Application",
     "description": "Zephyr Example Application",
     "project_slug": "{{ cookiecutter.application|lower|replace(' ', '_') }}",
+    "board": [
+        "zest_core_fmlr-72",
+        "zest_core_nrf52832",
+        "zest_core_nrf5340/nrf5340/cpuapp",
+        "zest_core_nrf5340/nrf5340/cpuapp/ns",
+        "zest_core_nrf5340/nrf5340/cpunet",
+        "zest_core_stm32g474ve",
+        "zest_core_stm32h753zi",
+        "zest_core_stm32l4a6rg",
+        "zest_core_stm32l562ve",
+        "NONE"
+    ],
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
     "create_repository": [
@@ -14,7 +26,8 @@
     "__prompts__": {
         "application": "Application name",
         "description": "Description of the application",
-        "project_slug": "Slug of the project",  
+        "project_slug": "Slug of the project",
+        "board": "Board used for the project",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a git repository"
