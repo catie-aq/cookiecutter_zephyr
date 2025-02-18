@@ -13,7 +13,8 @@
         "NONE"
     ],
     "description": "{{ cookiecutter.vendor }} {{ cookiecutter.reference }} {{ cookiecutter.sensor_type }} sensor",
-    "project_slug": "{{ cookiecutter.vendor_prefix }}-{{ cookiecutter.__reference_dash }}",
+    "repo_name": "{{ cookiecutter.vendor_prefix }}_{{ cookiecutter.__reference_dash }}",
+    "repo_path": "zephyr_{{ cookiecutter.vendor_prefix }}-{{ cookiecutter.__reference_dash }}",
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
     "create_repository": [
@@ -26,7 +27,6 @@
         "reference": "Reference of the component",
         "sensor_type": "Type of sensor (e.g. temperature, humidity, etc.)",
         "bus": "Bus type",
-        "project_slug": "Project slug",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a Git repository?"
