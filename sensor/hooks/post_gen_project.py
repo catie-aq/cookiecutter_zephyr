@@ -31,15 +31,15 @@ def main():
         create_repository()
 
     print(
-        SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR
+        SUCCESS + "Project generated in `{{ cookiecutter.repo_name }}`" + TERMINATOR
     )
 
     print("Add these lines to your manifest file:")
     print(
-        f"- name: {{cookiecutter.project_slug}}\n"
-        f"    repo-path: zephyr_{{cookiecutter.catie_slug}}\n"
+        f"- name: {{cookiecutter.repo_name}}\n"
+        f"    repo-path: {{cookiecutter.repo_path}}\n"
         f"    revision: main\n"
-        f"    path: 6tron/drivers/{{cookiecutter.project_slug}}\n"
+        f"    path: 6tron/drivers/{{cookiecutter.repo_name}}\n"
     )
 
 
