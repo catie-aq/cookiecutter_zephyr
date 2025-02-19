@@ -3,15 +3,6 @@
     "description": "Zephyr Example Application",
     "project_slug": "{{ cookiecutter.application|lower|replace(' ', '_') }}",
     "board": [
-        "zest_core_fmlr-72",
-        "zest_core_nrf52832",
-        "zest_core_nrf5340/nrf5340/cpuapp",
-        "zest_core_nrf5340/nrf5340/cpuapp/ns",
-        "zest_core_nrf5340/nrf5340/cpunet",
-        "zest_core_stm32g474ve",
-        "zest_core_stm32h753zi",
-        "zest_core_stm32l4a6rg",
-        "zest_core_stm32l562ve",
         "NONE"
     ],
     "copyright_holder": "CATIE",
