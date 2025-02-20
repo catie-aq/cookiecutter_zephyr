@@ -1,6 +1,6 @@
 # Cookiecutter Zephyr OS Driver
 
-[Cookiecutter](https://github.com/audreyr/cookiecutter) template for an Zephyr OS driver.
+[Cookiecutter](https://github.com/audreyr/cookiecutter) template for a Zephyr OS driver.
 
 ## Requirements
 
@@ -66,6 +66,11 @@ Generate a Zephyr OS workspace application
 - `application`: Application name
 - `description`: Description of the application
 - `project_slug`: Slug of the project
+- `board`: Target for the project
 - `copyright_holder`: Copyright holder
 - `copyright_year`: Copyright year
 - `create_repository`: Initialize a git repository
+
+> [!NOTE]
+>
+> cookiecutter 2.4.0 and earlier are required for this template.
