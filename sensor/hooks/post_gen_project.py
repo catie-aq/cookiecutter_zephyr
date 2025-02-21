@@ -37,7 +37,7 @@ def main():
     print("Add these lines to your manifest file:")
     print(
         f"- name: {{cookiecutter.project_slug}}\n"
-        f"    repo-path: zephyr_{{cookiecutter.project_slug}}\n"
+        f"    repo-path: {{cookiecutter.repo_path}}\n"
         f"    revision: main\n"
         f"    path: 6tron/drivers/{{cookiecutter.project_slug}}\n"
     )
