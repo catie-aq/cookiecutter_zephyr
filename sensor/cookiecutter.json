@@ -28,7 +28,7 @@
         "sensor_type": "Type of sensor (e.g. temperature, humidity, etc.)",
         "bus": "Bus type",
         "project_slug": "Project slug",
-        "repo_path": "Github repository name",
+        "repo_path": "GitHub repository name",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a Git repository?"
