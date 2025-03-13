@@ -1,6 +1,7 @@
 {
     "board_name": "Zest_example",
     "board_name_lower": "{{cookiecutter.board_name|lower}}",
+    "__board_name_macro": "{{ cookiecutter.board_name|upper|replace(' ', '_')|replace('-', '_') }}",
     "project_slug": "{{ cookiecutter.board_name|lower|replace(' ', '_')|replace('-', '_') }}",
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
