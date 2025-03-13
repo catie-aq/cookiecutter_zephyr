@@ -3,3 +3,6 @@
 
 config SHIELD_{{cookiecutter.project_slug|upper}}
 	def_bool $(shields_list_contains,{{cookiecutter.project_slug|lower}})
+
+config SHIELD_{{cookiecutter.project_slug|upper}}_ALT
+	def_bool $(shields_list_contains,{{cookiecutter.project_slug|lower}}_alt)
