@@ -11,7 +11,14 @@
 /* Declare each drivers */
 #define DRIVERS_{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...) 0
 
-/* Defines aliases for each previously declared drivers */
+/* Defines system wide values for previously declared drivers */
+#define CHOSEN_{{cookiecutter.__board_name_snake|upper}}_ALT(inst) \
+    / { \
+        chosen { \
+        }; \
+    };
+
+/* Defines aliases for previously declared drivers */
 #define ALIASES_{{cookiecutter.__board_name_snake|upper}}_ALT(inst) \
     / { \
         aliases { \
@@ -22,4 +29,5 @@
 #define {{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...) \
     PERIPHERAL_{{cookiecutter.__board_name_snake|upper}}_ALT(port) \
     DRIVERS_{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...) \
+    CHOSEN_{{cookiecutter.__board_name_snake|upper}}_ALT(inst) \
     ALIASES_{{cookiecutter.__board_name_snake|upper}}_ALT(inst)
