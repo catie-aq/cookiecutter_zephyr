@@ -1,8 +1,8 @@
 # Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
 # SPDX-License-Identifier: Apache-2.0
 
-config SHIELD_{{cookiecutter.project_slug|upper}}
-	def_bool $(shields_list_contains,{{cookiecutter.project_slug|lower}})
+config SHIELD_{{cookiecutter.board_name_lower|upper}}
+	def_bool $(shields_list_contains,{{cookiecutter.board_name_lower}})
 
-config SHIELD_{{cookiecutter.project_slug|upper}}_ALT
-	def_bool $(shields_list_contains,{{cookiecutter.project_slug|lower}}_alt)
+config SHIELD_{{cookiecutter.board_name_lower|upper}}_ALT
+	def_bool $(shields_list_contains,{{cookiecutter.board_name_lower}}_alt)
