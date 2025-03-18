@@ -72,4 +72,4 @@ Generate a Zephyr OS workspace application
 
 > [!NOTE]
 >
-> cookiecutter 2.4.0 and earlier are required for this template.
+> Cookiecutter 2.4.0 or later is required for this template.

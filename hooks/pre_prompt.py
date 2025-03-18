@@ -82,7 +82,7 @@ def modify_workspace_context(version):
     """Fetching file from release {version}."""
     options = fetch_file(version)
 
-    """Generating zest_core_list."""
+    """Generating Zest_Core list."""
     zest_core_list = parse_file(options)
     nrf_list = add_nrf(zest_core_list)
 
