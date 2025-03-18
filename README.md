@@ -69,3 +69,7 @@ Generate a Zephyr OS workspace application
 - `copyright_holder`: Copyright holder
 - `copyright_year`: Copyright year
 - `create_repository`: Initialize a git repository
+
+> [!NOTE]
+>
+> Cookiecutter 2.4.0 or later is required for this template.
