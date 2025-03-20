@@ -6,7 +6,6 @@
     "__reference_snake": "{{ cookiecutter.reference|lower|replace(' ', '-')|replace('-', '_') }}",
     "__reference_dash": "{{cookiecutter.__reference_snake|replace('_','-')}}",
     "sensor_type": "TYPE",
-    "__reference_type": "{{ cookiecutter.sensor_type|lower|replace(' ', '-')|replace('-', '_') }}",
     "bus": [
         "I2C",
         "SPI",

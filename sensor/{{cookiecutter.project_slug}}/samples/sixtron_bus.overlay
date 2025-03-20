@@ -5,12 +5,9 @@
 
 #include <zephyr/dt-bindings/gpio/sixtron-header.h>
 
-/ {
-    aliases {
-		{{cookiecutter.__reference_dash}} = &{{cookiecutter.__reference_dash}}_{{cookiecutter.__reference_type}};
-	};
 {% if cookiecutter.bus == "NONE" %}
-    {{cookiecutter.__reference_dash}}_{{cookiecutter.__reference_type}}: {{cookiecutter.__reference_snake}} {
+/ {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
 {% endif %}};
@@ -18,7 +15,7 @@
 &sixtron_i2c {
     status = "okay";
 
-    {{cookiecutter.__reference_dash}}_{{cookiecutter.__reference_type}}: {{cookiecutter.__reference_snake}}@XX {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@XX {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
         reg = <0xXX>;
     };
@@ -26,7 +23,7 @@
 &sixtron_spi {
     status = "okay";
 
-    {{cookiecutter.__reference_dash}}_{{cookiecutter.__reference_type}}: {{cookiecutter.__reference_snake}}@X {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@X {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
         reg = <X>;
     };
@@ -35,7 +32,7 @@
     status = "okay";
     current-speed = <9600>;
 
-    {{cookiecutter.__reference_dash}}_{{cookiecutter.__reference_type}}: {{cookiecutter.__reference_snake}} {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
 {% endif %}};

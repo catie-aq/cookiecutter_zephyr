@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	const struct device *const dev = DEVICE_DT_GET(DT_ALIAS({{cookiecutter.__reference_dash}}));
+	const struct device *const dev = DEVICE_DT_GET(DT_NODELABEL({{cookiecutter.__reference_dash}}));
 	struct sensor_value value;
 
 	if (!device_is_ready(dev)) {
