@@ -1,4 +1,5 @@
 {
+    "__manifest_version": "",
     "application": "Example Application",
     "description": "Zephyr Example Application",
     "project_slug": "{{ cookiecutter.application|lower|replace(' ', '_') }}",

@@ -18,7 +18,7 @@ jobs:
         application: [ "app" ]
     uses: catie-aq/zephyr_workflows/.github/workflows/application.yml@main
     with:
-      container: "ghcr.io/catie-aq/zephyr_docker:v0.26.18"
+      container: "ghcr.io/catie-aq/zephyr_docker:v4.0.0+202502"
       application: {% raw %}${{ matrix.application }}{% endraw %}
       board: "{{cookiecutter.board}}"
 

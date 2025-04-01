@@ -1,19 +1,18 @@
 import os, re
 import json
 import urllib.request
+from pathlib import Path
 
-from cookiecutter.config import get_user_config
-from cookiecutter.generate import generate_context
-
-MANIFESTS_PATH = "resources/manifests/"
 WEST_PATH = "workspace_application/{{cookiecutter.project_slug}}/west.yml"
 GITHUB_OWNER = "catie-aq"
 REPO_NAME = "zephyr_6tron-manifest"
 FILE_PATH = "west.yml"
-COOKIECUTTER_PATH = "workspace_application/cookiecutter.json"
+CACHE_DIRECTORY = os.path.expanduser("~/.cache/cookiecutter/6tron_zephyr")
+MANIFESTS_DIRECTORY = "/manifests"
+CORES_DIRECTORY = "/cores"
 
 def get_west_content():
-    """Reads the Git file URL from a local file."""
+    """Reads the Git file from a local file."""
     with open(WEST_PATH, "r") as f:
         return f.read().strip()
 
@@ -25,83 +24,93 @@ def get_manifest_version():
 
     return match.group(1)
 
-def update_resources(version):
+def update_manifest(version):
     """Checking file {version} in resources"""
     file_name = f"west-{version}.yml"
 
-    for file in os.listdir(get_user_config()["cookiecutters_dir"] + "cookiecutter_zephyr/" + MANIFESTS_PATH):
+    for file in os.listdir(CACHE_DIRECTORY + MANIFESTS_DIRECTORY):
         if (file == file_name):
-            return
+            return True
 
+    print("Updating manifest file")
     """Fetches a file from a specific GitHub release."""
     url = f"https://raw.github.com/{GITHUB_OWNER}/{REPO_NAME}/{version}/{FILE_PATH}"
     try:
         with urllib.request.urlopen(url) as response:
             content = response.read().decode('utf-8')
             # Write the content to a 'west.yml' file
-            with open(get_user_config()['cookiecutters_dir'] + 'cookiecutter_zephyr/' + MANIFESTS_PATH + "/" + file_name, 'w') as file:
+            with open(CACHE_DIRECTORY + MANIFESTS_DIRECTORY + "/" + file_name, 'w') as file:
                 file.write(content)
+            return True
     except Exception:
-        return
+        return False
 
-def fetch_file(version):
-    """Fetches a file"""
-    file_path = get_user_config()["cookiecutters_dir"] + "cookiecutter_zephyr/" + MANIFESTS_PATH + f"west-{version}.yml"
-    default_path = get_user_config()["cookiecutters_dir"] + "cookiecutter_zephyr/" + MANIFESTS_PATH + f"default.yml"
+def update_core(version):
+    file_name = f"cores-{version}.yml"
+    for file in os.listdir(CACHE_DIRECTORY + CORES_DIRECTORY):
+        if (file == file_name):
+            return True
 
-    if os.path.exists(file_path):
-        with open(file_path, 'r') as file:
-            return file.readlines()
-    else:
-        with open(default_path, 'r') as file:
-            return file.readlines()
+    print("Updating core file")
+    file_name = f"west-{version}.yml"
+    zest_core_pattern = r'name:\s*(zest_core_[\w\d-]+).*?repo-path:\s*([a-zA-Z0-9_-]*zest-core-[\w\d-]+).*?revision:\s*([a-f0-9]{40})'
+    content = []
+    with open(CACHE_DIRECTORY + MANIFESTS_DIRECTORY + "/" + file_name, 'r') as file:
+        content = file.read()
 
-def parse_file(lines):
-    """Parses a file and returns a list of zest_core names."""
-    pattern = r"- name:\s+(zest_core_\S+)"
-    zest_core_list = [match.group(1) for line in lines if (match := re.search(pattern, line))]
+    core_list = {}
+    matches = re.findall(zest_core_pattern, content, re.DOTALL)
+    for name, repo, commit in matches:
+        directory = f"boards/catie/{name}"
 
-    return zest_core_list
+        """Fetches a file from a specific GitHub release."""
+        api_url = f"https://api.github.com/repos/{GITHUB_OWNER}/{repo}/contents/{directory}?ref={commit}"
+        try:
+            # Fetch the directory contents
+            with urllib.request.urlopen(api_url) as response:
+                content = response.read().decode('utf-8')
+                files = json.loads(content)
+                # Filter files that end with .dts
+                cores = []
+                for file in files:
+                    if file['name'].endswith('.dts'):
+                        core = file['name'].split(".")[0]
+                        if core.startswith(name):
+                            result = name + core[len(name):].replace("_", "/")
+                        cores.append(result)
+                core_list[name] = cores
+        except Exception as e:
+            print(f"Error fetching file list: {e}")
 
-def add_nrf(core_list):
-    """Add nrf5340 cores to the list."""
-    updated_list = []
-    for core in core_list:
-        if "nrf5340" in core:
-            updated_list.extend([
-                f"{core}/nrf5340/cpunet",
-                f"{core}/nrf5340/cpuapp",
-                f"{core}/nrf5340/cpuapp/ns"
-            ])
-        else:
-            updated_list.append(core)
-    
-    return updated_list
+    if (core_list != []):
+        with open(CACHE_DIRECTORY + CORES_DIRECTORY + f"/cores-{version}.yml", 'w') as core_file:
+            # Convert the dictionary to a YAML-like format
+            yaml_content = ""
+            for key, values in core_list.items():
+                yaml_content += f"{key}:\n"
+                for value in values:
+                    yaml_content += f"  - {value}\n"
+            core_file.write(yaml_content)
 
-def modify_workspace_context(version):
-    """Fetching file from release {version}."""
-    options = fetch_file(version)
+def update_cache(version):
+    """Update west-{version}.yaml in cache"""
+    valid = update_manifest(version)
 
-    """Generating zest_core_list."""
-    zest_core_list = parse_file(options)
-    nrf_list = add_nrf(zest_core_list)
+    """Update dual-core file in cache"""
+    if (valid):
+        update_core(version)
 
-    """Generating and Updating cookiecutter context."""
-    context_path = get_user_config()["cookiecutters_dir"] + "cookiecutter_zephyr/" + COOKIECUTTER_PATH
-    context = generate_context(context_path)
-    context['cookiecutter']['board'].extend(nrf_list)
-    with open(COOKIECUTTER_PATH, 'w') as file:
-        json.dump(context["cookiecutter"], file, indent=4)
 
 def main():
+    """Creating cache directory."""
+    Path(CACHE_DIRECTORY + MANIFESTS_DIRECTORY).mkdir(parents=True, exist_ok=True)
+    Path(CACHE_DIRECTORY + CORES_DIRECTORY).mkdir(parents=True, exist_ok=True)
+
     """Fetching west.yml."""
     version = get_manifest_version()
 
     """Fetching file from release {version}."""
-    update_resources(version)
-
-    """Update workspace parameter according to west-{version}.yml"""
-    modify_workspace_context(version)
+    update_cache(version)
 
 if __name__ == "__main__":
     main()
