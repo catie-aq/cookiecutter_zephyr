@@ -1,15 +1,13 @@
 {
-	"name": "{{cookiecutter.application}}",
-	"dockerFile": "Dockerfile",
-
-	"features": {
+    "name": "{{cookiecutter.application}}",
+    "dockerFile": "Dockerfile",
+    "features": {
         "ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
-	},
-
-	"runArgs": ["--privileged"],
-	"mounts": [
-		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
-		// Mounts the ttyUSB0 device to the container
-		// "source=/dev/ttyUSB0,target=/dev/ttyUSB0,type=bind"
-	]
+    },
+    "runArgs": [
+        "--privileged"
+    ],
+    "mounts": [
+        "source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+    ]
 }
