@@ -2,6 +2,8 @@ name: Build
 
 on:
   push:
+    branches:
+      - main
     paths-ignore:
       - 'README.md'
   pull_request:
@@ -16,7 +18,9 @@ jobs:
         application: [ "app" ]
     uses: catie-aq/zephyr_workflows/.github/workflows/application.yml@main
     with:
-      application: ${{ matrix.application }}
+      container: "ghcr.io/catie-aq/zephyr_docker:v4.0.0+202502"
+      application: {% raw %}${{ matrix.application }}{% endraw %}
+      board: "{{cookiecutter.board}}"
 
     secrets:
-      personal_access_token: ${{ secrets.PAT }}
+      personal_access_token: {% raw %}${{ secrets.CI_6TRON_ZEPHYR_RO }}{% endraw %}
