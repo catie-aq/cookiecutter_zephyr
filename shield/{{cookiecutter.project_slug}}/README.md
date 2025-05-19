@@ -6,17 +6,17 @@
 
 This board enables the following components:
 
-- [Vendor Reference](https://link-to-component) kind of sensor :warning:
+- [Vendor Reference](https://link-to-component) kind of sensor.
 
 :bulb: These drivers should also be added to your workspace:
 
-- [Vendor Reference driver](https://link-to-repository) :warning:
+- [Vendor Reference driver](https://link-to-repository).
 
 :pushpin: This shield defines:
 
-- the default chosen-node-purpose: `zephyr,chosen-node-label` to `reference-node` :warning:
+- the default chosen-node-purpose: `zephyr,chosen-node-label` to `reference-node`,
 <!-- Get chosen node purpose and chosen node label from [Zephyr documentation](https://docs.zephyrproject.org/latest/build/dts/api/api.html#zephyr-specific-chosen-nodes). -->
-- a node-purpose device: `reference-node` :warning:
+- a node-purpose device: `reference-node`.
 
 :triangular_ruler: To use this shield:
 
@@ -35,8 +35,8 @@ This shield can be hardware-modified to suit your application.
 
 In that case, use instead the alternate variant of the shield:
 
-- Update your device tree by adding the `{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...)` macro to the `app.overlay` file, with:
+- Update your device tree by adding the `{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, other-param)` macro to the `app.overlay` file, with:
   - `inst`: number of the shield instance,
   - `port`: number of the Zest_Core port to which the shield is connected,
-  - List macro parameters for shield variation :warning:
+  - `other-param`: description of the other parameter.
 - Activate support for the shield by adding `--shield {{cookiecutter.board_name_lower}}_alt` to the west command.
