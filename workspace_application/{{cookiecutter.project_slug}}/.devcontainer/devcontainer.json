@@ -2,7 +2,7 @@
     "name": "{{cookiecutter.application}}",
     "dockerFile": "Dockerfile",
     "features": {
-        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
+        "ghcr.io/devcontainers-extra/features/pre-commit:2": {}
     },
     "runArgs": [
         "--privileged"
