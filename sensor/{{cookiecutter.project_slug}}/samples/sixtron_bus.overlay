@@ -4,13 +4,13 @@
  */
 
 #include <zephyr/dt-bindings/gpio/sixtron-header.h>
-
-{%- if cookiecutter.bus == "NONE" %}
+{% if cookiecutter.bus == "NONE" %}
 / {
     {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
-{%- endif %}};
+};
+{%- endif %}
 {%- if cookiecutter.bus != "NONE" %}
 {%- if cookiecutter.bus == "I2C" %}
 &sixtron_i2c {
@@ -36,5 +36,6 @@
     {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
-{%- endif %}};
+{%- endif %}
+};
 {%- endif %}
