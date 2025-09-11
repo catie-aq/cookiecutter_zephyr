@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 
 TERMINATOR = "\x1b[0m"
@@ -26,9 +27,26 @@ def create_repository():
     git_commit()
 
 
+def cleanup_secure():
+    secure_files = [
+        'app/include/'
+    ]
+    project_dir = os.path.realpath(os.path.curdir)
+
+    for file in secure_files:
+        path = os.path.join(project_dir, file)
+        if os.path.isdir(path):
+            shutil.rmtree(path)
+        elif os.path.isfile(path):
+            os.remove(path)
+
+
 def main():
     if {{cookiecutter.create_repository}}:
         create_repository()
+
+    if not {{cookiecutter.secure_app}}:
+        cleanup_secure()
 
     print(
         SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR

@@ -13,10 +13,12 @@ jobs:
   zephyr-application:
     strategy:
       matrix:
-        application: [ "app" ]
+        application: ['app']
     uses: catie-aq/zephyr_workflows/.github/workflows/application.yml@main
     with:
-      application: ${{ matrix.application }}
-
+{% raw %}      application: ${{ matrix.application }}{% endraw %}
+{% if cookiecutter.secure_app|lower == "true" %}
+      board: "zest_core_nrf5340/nrf5340/cpuapp"
+{% endif %}
     secrets:
-      personal_access_token: ${{ secrets.PAT }}
+{% raw %}      personal_access_token: ${{ secrets.PAT }}{% endraw %}
