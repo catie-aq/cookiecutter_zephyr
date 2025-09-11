@@ -2,6 +2,10 @@
     "application": "Example Application",
     "description": "Zephyr Example Application",
     "project_slug": "{{ cookiecutter.application|lower|replace(' ', '_') }}",
+    "secure_app": [
+        false,
+        true
+    ],
     "copyright_holder": "CATIE",
     "copyright_year": "{% now 'utc', '%Y' %}",
     "create_repository": [
@@ -9,12 +13,12 @@
         false
     ],
     "_copy_without_render": [
-        ".github/workflows/build.yaml"
     ],
     "__prompts__": {
         "application": "Application name",
         "description": "Description of the application",
         "project_slug": "Slug of the project",  
+        "secure_app": "Application with Zest_Security_SecureElement",
         "copyright_holder": "Copyright holder",
         "copyright_year": "Copyright year",
         "create_repository": "Initialize a git repository"

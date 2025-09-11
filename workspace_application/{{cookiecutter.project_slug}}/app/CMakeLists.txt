@@ -6,4 +6,9 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project({{cookiecutter.application|lower|replace(' ','_')}} LANGUAGES C)
 
-target_sources(app PRIVATE src/main.c)
+{% if cookiecutter.secure_app|lower == "true" -%}
+zephyr_include_directories(include)
+{% endif -%}
+
+file(GLOB_RECURSE app_sources src/*.c)
+target_sources(app PRIVATE ${app_sources})
