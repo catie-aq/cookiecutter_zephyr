@@ -5,7 +5,6 @@
  */
 
 #include <zephyr/dt-bindings/gpio/sixtron-header.h>
-
 {% if cookiecutter.secure_app|lower == "true" -%}
 / {
 	zephyr,user {
