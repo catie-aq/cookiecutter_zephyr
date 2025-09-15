@@ -19,7 +19,7 @@ struct {{cookiecutter.__reference_snake}}_data {
 };
 
 static int {{cookiecutter.__reference_snake}}_attr_set(const struct device *dev, enum sensor_channel chan,
-			   enum sensor_attribute attr, const struct sensor_value *val)
+			      enum sensor_attribute attr, const struct sensor_value *val)
 {
 	return 0;
 }
@@ -33,7 +33,7 @@ static int {{cookiecutter.__reference_snake}}_sample_fetch(const struct device *
 }
 
 static int {{cookiecutter.__reference_snake}}_channel_get(const struct device *dev, enum sensor_channel chan,
-			      struct sensor_value *val)
+				 struct sensor_value *val)
 {
 	struct {{cookiecutter.__reference_snake}}_data *data = dev->data;
 
@@ -58,11 +58,10 @@ static const struct sensor_driver_api {{cookiecutter.__reference_snake}}_driver_
 	.channel_get = {{cookiecutter.__reference_snake}}_channel_get,
 };
 
-#define {{cookiecutter.__reference_snake.upper()}}_INIT(n)                                                                             \
-	static struct {{cookiecutter.__reference_snake}}_config {{cookiecutter.__reference_snake}}_config_##n = {                                             \
-	};                                                                                         \
-	static struct {{cookiecutter.__reference_snake}}_data {{cookiecutter.__reference_snake}}_data_##n;                                                 \
-	DEVICE_DT_INST_DEFINE(n, {{cookiecutter.__reference_snake}}_init, NULL, &{{cookiecutter.__reference_snake}}_data_##n, &{{cookiecutter.__reference_snake}}_config_##n,          \
+#define {{cookiecutter.__reference_snake.upper()}}_INIT(n)  \
+	static struct {{cookiecutter.__reference_snake}}_config {{cookiecutter.__reference_snake}}_config_##n = {};  \
+	static struct {{cookiecutter.__reference_snake}}_data {{cookiecutter.__reference_snake}}_data_##n;  \
+	DEVICE_DT_INST_DEFINE(n, {{cookiecutter.__reference_snake}}_init, NULL, &{{cookiecutter.__reference_snake}}_data_##n, &{{cookiecutter.__reference_snake}}_config_##n,  \
 			      POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY, &{{cookiecutter.__reference_snake}}_driver_api);
 
 DT_INST_FOREACH_STATUS_OKAY({{cookiecutter.__reference_snake.upper()}}_INIT)
