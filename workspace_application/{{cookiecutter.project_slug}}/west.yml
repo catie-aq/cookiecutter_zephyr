@@ -44,11 +44,3 @@ manifest:
       revision: v4.2.0+202508
       path: 6tron/6tron_manifest
       import: true
-{% if cookiecutter.secure_app|lower == "true" -%}
-    - name: stselib-module
-      remote: catie-6tron
-      repo-path: zephyr_stselib-module
-      revision: v1.1.1
-      path: 6tron/stselib_module
-      submodules: true
-{% endif -%}
