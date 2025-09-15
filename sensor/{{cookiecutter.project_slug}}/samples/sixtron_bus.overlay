@@ -5,13 +5,14 @@
 
 #include <zephyr/dt-bindings/gpio/sixtron-header.h>
 
-{% if cookiecutter.bus == "NONE" %}
+{%- if cookiecutter.bus == "NONE" %}
 / {
     {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
-{% endif %}};
-{% if cookiecutter.bus != "NONE" %}{% if cookiecutter.bus == "I2C" %}
+{%- endif %}};
+{%- if cookiecutter.bus != "NONE" %}
+{%- if cookiecutter.bus == "I2C" %}
 &sixtron_i2c {
     status = "okay";
 
@@ -19,7 +20,7 @@
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
         reg = <0xXX>;
     };
-{% elif cookiecutter.bus == "SPI" %}
+{%- elif cookiecutter.bus == "SPI" %}
 &sixtron_spi {
     status = "okay";
 
@@ -27,7 +28,7 @@
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
         reg = <X>;
     };
-{% elif cookiecutter.bus == "SERIAL" %}
+{%- elif cookiecutter.bus == "SERIAL" %}
 &sixtron_uart {
     status = "okay";
     current-speed = <9600>;
@@ -35,5 +36,5 @@
     {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
-{% endif %}};
-{% endif %}
+{%- endif %}};
+{%- endif %}
