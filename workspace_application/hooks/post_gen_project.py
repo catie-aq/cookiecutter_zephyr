@@ -16,7 +16,7 @@ def git_add_all():
 
 
 def git_commit():
-    return subprocess.check_call(
+    return subprocess.run(
         ["git", "commit", "-m", "Initial commit"], stdout=subprocess.DEVNULL
     )
 
