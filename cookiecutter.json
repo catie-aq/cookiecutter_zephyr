@@ -10,7 +10,7 @@
             "title": "Shield",
             "description": "Template for Zephyr shield"
         },
-		"core": {
+        "core": {
             "path": "./core",
             "title": "Core",
             "description": "Template for Zephyr Zest_Core board"
