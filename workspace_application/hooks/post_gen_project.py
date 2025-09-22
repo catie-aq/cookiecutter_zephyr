@@ -42,11 +42,11 @@ def cleanup_secure():
 
 
 def main():
-    if {{cookiecutter.create_repository}}:
-        create_repository()
-
     if not {{cookiecutter.secure_app}}:
         cleanup_secure()
+        
+    if {{cookiecutter.create_repository}}:
+        create_repository()
 
     print(
         SUCCESS + "Project generated in `{{ cookiecutter.project_slug }}`" + TERMINATOR
