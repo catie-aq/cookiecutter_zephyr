@@ -66,6 +66,7 @@ Generate a Zephyr OS workspace application
 - `application`: Application name
 - `description`: Description of the application
 - `project_slug`: Slug of the project
+- `secure_app`: Application with Zest_Security_SecureElement
 - `copyright_holder`: Copyright holder
 - `copyright_year`: Copyright year
 - `create_repository`: Initialize a git repository
