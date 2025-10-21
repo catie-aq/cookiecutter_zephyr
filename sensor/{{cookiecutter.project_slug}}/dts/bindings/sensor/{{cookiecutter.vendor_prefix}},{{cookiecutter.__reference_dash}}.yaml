@@ -6,4 +6,12 @@ description: |
 
 compatible: "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}"
 
+{% if cookiecutter.bus == "I2C" -%}
+include: [sensor-device.yaml, i2c-device.yaml]
+{% elif cookiecutter.bus == "SPI" -%}
+include: [sensor-device.yaml, spi-device.yaml]
+{% elif cookiecutter.bus == "SERIAL" -%}
+include: [sensor-device.yaml, uart-device.yaml]
+{% else -%}
 include: [sensor-device.yaml]
+{% endif -%}
