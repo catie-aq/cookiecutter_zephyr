@@ -53,7 +53,21 @@ static DEVICE_API(sensor, {{cookiecutter.__reference_snake}}_driver_api) = {
 };
 
 #define {{cookiecutter.__reference_snake.upper()}}_INIT(n)  \
+{%- if cookiecutter.bus == "NONE" %}
 	static const struct {{cookiecutter.__reference_snake}}_config {{cookiecutter.__reference_snake}}_config_##n = {};  \
+{%- else %}
+	static const struct {{cookiecutter.__reference_snake}}_config {{cookiecutter.__reference_snake}}_config_##n = {  \
+{%- endif %}
+{%- if cookiecutter.bus == "I2C" %}
+		.i2c = I2C_DT_SPEC_INST_GET(n),  \
+{%- elif cookiecutter.bus == "SPI" %}
+		.spi = SPI_DT_SPEC_INST_GET(n, SPI_OP_MODE_MASTER | SPI_WORD_SET(8), 0),  \
+{%- elif cookiecutter.bus == "SERIAL" %}
+		.uart = DEVICE_DT_GET(DT_INST_BUS(n)),  \
+{%- endif %}
+{%- if cookiecutter.bus != "NONE" %}
+	};  \
+{%- endif %}
 	static struct {{cookiecutter.__reference_snake}}_data {{cookiecutter.__reference_snake}}_data_##n;  \
 	SENSOR_DEVICE_DT_INST_DEFINE(n, {{cookiecutter.__reference_snake}}_init, NULL, &{{cookiecutter.__reference_snake}}_data_##n, &{{cookiecutter.__reference_snake}}_config_##n,  \
 			      POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY, &{{cookiecutter.__reference_snake}}_driver_api);
