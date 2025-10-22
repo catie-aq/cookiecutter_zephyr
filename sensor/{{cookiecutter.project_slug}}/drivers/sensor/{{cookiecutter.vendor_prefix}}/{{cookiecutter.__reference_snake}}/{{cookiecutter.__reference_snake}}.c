@@ -12,12 +12,6 @@
 
 LOG_MODULE_REGISTER({{cookiecutter.__reference_snake.upper()}}, CONFIG_SENSOR_LOG_LEVEL);
 
-struct {{cookiecutter.__reference_snake}}_config {
-};
-
-struct {{cookiecutter.__reference_snake}}_data {
-};
-
 static int {{cookiecutter.__reference_snake}}_attr_set(const struct device *dev, enum sensor_channel chan,
 			      enum sensor_attribute attr, const struct sensor_value *val)
 {
