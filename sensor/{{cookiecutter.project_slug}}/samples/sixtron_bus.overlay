@@ -9,9 +9,7 @@
     {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}} {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
     };
-};
 {%- endif %}
-{%- if cookiecutter.bus != "NONE" %}
 {%- if cookiecutter.bus == "I2C" %}
 &sixtron_i2c {
     status = "okay";
@@ -38,4 +36,3 @@
     };
 {%- endif %}
 };
-{%- endif %}
