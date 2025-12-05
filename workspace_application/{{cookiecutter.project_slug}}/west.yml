@@ -14,7 +14,7 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: v4.2.0
+      revision: v4.3.0
       import:
         name-blocklist:
           - hal_altera
@@ -41,6 +41,6 @@ manifest:
     - name: 6tron_manifest
       remote: catie-6tron
       repo-path: zephyr_6tron-manifest
-      revision: v4.2.0+202508
+      revision: v4.3.0+202511
       path: 6tron/6tron_manifest
       import: true
