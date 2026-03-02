@@ -9,23 +9,12 @@
 #include <zephyr/drivers/gpio.h>
 
 #include "stselib.h"
-
-const struct gpio_dt_spec stsafe_reset = GPIO_DT_SPEC_GET(ZEPHYR_USER_NODE, stsafereset_gpios);
 {%- endif %}
 
 int main(void)
 {
 {%- if cookiecutter.secure_app|lower == "true" %}
 	int ret = STSE_OK;
-	if (!gpio_is_ready_dt(&stsafe_reset)) {
-		printk("STSafe reset GPIO is not ready!\n");
-		return -1;
-	}
-	if (gpio_pin_configure_dt(&stsafe_reset, GPIO_OUTPUT_ACTIVE) < 0) {
-		printk("Failed to configure STSafe reset GPIO!\n");
-		return -1;
-	}
-
 	stse_Handler_t stse_handler;
 	ret = stse_set_default_handler_value(&stse_handler);
 	if (ret != STSE_OK) {
