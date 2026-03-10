@@ -1,0 +1,34 @@
+{
+    "vendor": "VENDOR",
+    "vendor_prefix": "{{ cookiecutter.vendor|lower|replace(' ', '-')|replace('_', '-') }}",
+    "__vendor_prefix_snake": "{{ cookiecutter.vendor_prefix|replace('-', '_') }}",
+    "reference": "REFERENCE",
+    "__reference_snake": "{{ cookiecutter.reference|lower|replace(' ', '-')|replace('-', '_') }}",
+    "__reference_dash": "{{cookiecutter.__reference_snake|replace('_','-')}}",
+    "bus": [
+        "I2C",
+        "SPI",
+        "SERIAL",
+        "NONE"
+    ],
+    "description": "{{ cookiecutter.vendor }} {{ cookiecutter.reference }} adc",
+    "project_slug": "{{ cookiecutter.vendor_prefix }}_{{ cookiecutter.__reference_dash }}",
+    "repo_path": "zephyr_{{ cookiecutter.vendor_prefix }}-{{ cookiecutter.__reference_dash }}",
+    "copyright_holder": "CATIE",
+    "copyright_year": "{% now 'utc', '%Y' %}",
+    "create_repository": [
+        true,
+        false
+    ],
+    "__prompts__": {
+        "vendor": "Manufacturer's name",
+        "vendor_prefix": "Manufacturer's short name, as in vendor-prefixes.txt",
+        "reference": "Reference of the component",
+        "bus": "Bus type",
+        "project_slug": "Project slug",
+        "repo_path": "GitHub repository name",
+        "copyright_holder": "Copyright holder",
+        "copyright_year": "Copyright year",
+        "create_repository": "Initialize a Git repository?"
+    }
+}
