@@ -1,0 +1,15 @@
+# Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.copyright_holder}}
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    {{cookiecutter.description}}
+
+compatible: "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}-adc"
+
+{% if cookiecutter.bus == "I2C" -%}
+include: [adc-controller.yaml, i2c-device.yaml]
+{% elif cookiecutter.bus == "SPI" -%}
+include: [adc-controller.yaml, spi-device.yaml]
+{% elif cookiecutter.bus == "SERIAL" -%}
+include: [adc-controller.yaml, uart-device.yaml]
+{% endif -%}
