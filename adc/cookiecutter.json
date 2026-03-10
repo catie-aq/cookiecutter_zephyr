@@ -12,6 +12,7 @@
         "NONE"
     ],
     "description": "{{ cookiecutter.vendor }} {{ cookiecutter.reference }} adc",
+    "channel_count": 1,
     "project_slug": "{{ cookiecutter.vendor_prefix }}_{{ cookiecutter.__reference_dash }}",
     "repo_path": "zephyr_{{ cookiecutter.vendor_prefix }}-{{ cookiecutter.__reference_dash }}",
     "copyright_holder": "CATIE",
@@ -25,6 +26,7 @@
         "vendor_prefix": "Manufacturer's short name, as in vendor-prefixes.txt",
         "reference": "Reference of the component",
         "bus": "Bus type",
+        "channel_count": "Number of ADC channels",
         "project_slug": "Project slug",
         "repo_path": "GitHub repository name",
         "copyright_holder": "Copyright holder",
