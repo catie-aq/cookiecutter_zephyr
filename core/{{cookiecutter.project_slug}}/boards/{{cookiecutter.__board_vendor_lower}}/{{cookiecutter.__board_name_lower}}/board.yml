@@ -1,5 +1,6 @@
 board:
   name: {{cookiecutter.__board_name_lower_underscore}}
+  full_name: {{cookiecutter.board_name}}
   vendor: {{cookiecutter.__board_vendor_lower}}
   socs:
     - name: {{cookiecutter.__zephyr_board_soc_lower}}
