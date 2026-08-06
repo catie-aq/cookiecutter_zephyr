@@ -19,6 +19,11 @@
             "path": "./workspace_application",
             "title": "Workspace application",
             "description": "Template for Zephyr workspace application"
+        },
+        "adc": {
+            "path": "./adc",
+            "title": "ADC driver",
+            "description": "Template for Zephyr ADC driver"
         }
     }
 }

@@ -1,0 +1,16 @@
+sample:
+  name: {{cookiecutter.reference}} {{cookiecutter.sensor_type}} sensor sample
+common:
+  tags:
+    - adc
+
+tests:
+  sample.default:
+    integration_platforms:
+      - zest_core_stm32l4a6rg
+    depends_on:
+{% if cookiecutter.bus == "I2C" %}      - i2c
+{% elif cookiecutter.bus == "SPI" %}      - spi
+{% elif cookiecutter.bus == "uart" %}      - uart
+{% endif %}      - YOUR_TAG_HERE
+    extra_args: "DTC_OVERLAY_FILE=sixtron_bus.overlay"
