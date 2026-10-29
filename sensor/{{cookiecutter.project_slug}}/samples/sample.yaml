@@ -8,6 +8,6 @@ tests:
     depends_on:
 {% if cookiecutter.bus == "I2C" %}      - i2c
 {% elif cookiecutter.bus == "SPI" %}      - spi
-{% elif cookiecutter.bus == "uart" %}      - uart
+{% elif cookiecutter.bus == "SERIAL" %}      - uart
 {% endif %}      - YOUR_TAG_HERE
     extra_args: "DTC_OVERLAY_FILE=sixtron_bus.overlay"
