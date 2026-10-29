@@ -6,21 +6,69 @@ on:
       - main
   pull_request:
   workflow_dispatch:
-                
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    strategy:
-      matrix:
-        templates: [ "core", "sensor", "shield", "workspace_application" ]
+  # Variants from .github/variants.json: every variant is generated and linted.
+  setup:
     runs-on: sonu-github-arc
     container:
-      image: python:3.10
+      image: python:3.12
+    outputs:
+      variants: ${{ steps.variants.outputs.variants }}
     steps:
-    - uses: actions/checkout@v3
-    - name: Install cookiecutter
-      run: |
-        pip install cookiecutter
-    - name: Test cookiecutter
-      run: |
-        cd ${{ matrix.templates }}
-        cookiecutter . --no-input --accept-hooks no
+      - uses: actions/checkout@v4
+
+      - name: Read variants
+        id: variants
+        shell: python
+        run: |
+          import json, os
+
+          variants = json.load(open(".github/variants.json"))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"variants={json.dumps(variants)}\n")
+
+  lint:
+    name: lint (${{ matrix.name }})
+    needs: setup
+    runs-on: sonu-github-arc
+    container:
+      image: python:3.12
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.setup.outputs.variants) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: template
+
+      - name: Install tools
+        run: pip install cookiecutter clang-format pre-commit
+
+      - name: Generate
+        env:
+          CONTEXT: ${{ toJSON(matrix.context) }}
+        run: |
+          project=$(python3 template/.github/scripts/generate.py "${{ matrix.template }}" out | tail -n 1)
+          mv "$project" workdir
+
+      - name: No Jinja left
+        run: |
+          if grep -rnE '\{\{ *cookiecutter|\{%|%\}' --exclude-dir=.git workdir; then
+            exit 1
+          fi
+
+      - name: Generated project's pre-commit
+        working-directory: workdir
+        run: |
+          git init -q
+          git add -A
+          pre-commit run --all-files --show-diff-on-failure
