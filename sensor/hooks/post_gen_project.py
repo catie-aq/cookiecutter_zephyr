@@ -1,5 +1,7 @@
 import os
+import shutil
 import subprocess
+from pathlib import Path
 
 TERMINATOR = "\x1b[0m"
 WARNING = "\x1b[1;33m[WARNING]: "
@@ -26,7 +28,22 @@ def create_repository():
     git_commit()
 
 
+def clang_format():
+    # The names length shifts the macro alignment: reformat if clang-format is
+    # around (the pre-commit hook does it otherwise).
+    clang_format = shutil.which("clang-format")
+    if clang_format:
+        sources = sorted(
+            str(p)
+            for d in ("drivers", "samples")
+            for p in Path(d).rglob("*.[ch]")
+        )
+        subprocess.run([clang_format, "-i", *sources], check=False)
+
+
 def main():
+    clang_format()
+
     if {{cookiecutter.create_repository}}:
         create_repository()
 
