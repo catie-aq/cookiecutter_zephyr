@@ -3,7 +3,7 @@
 
 manifest:
   self:
-    path: 6tron-project
+    path: {{cookiecutter.project_slug}}
 
   remotes:
     - name: zephyrproject-rtos
