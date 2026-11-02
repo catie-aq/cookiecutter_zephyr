@@ -1,0 +1,60 @@
+[
+    {
+        "name": "core",
+        "template": "core",
+        "context": {
+            "board_name": "Zest_Core_CI"
+        }
+    },
+    {
+        "name": "core-full-size",
+        "template": "core",
+        "context": {
+            "board_name": "Zest_Core_CI",
+            "zest_full_size": true
+        }
+    },
+    {
+        "name": "sensor-i2c",
+        "template": "sensor",
+        "context": {}
+    },
+    {
+        "name": "sensor-spi",
+        "template": "sensor",
+        "context": {
+            "bus": "SPI"
+        }
+    },
+    {
+        "name": "sensor-serial",
+        "template": "sensor",
+        "context": {
+            "bus": "SERIAL"
+        }
+    },
+    {
+        "name": "sensor-none",
+        "template": "sensor",
+        "context": {
+            "bus": "NONE"
+        }
+    },
+    {
+        "name": "shield",
+        "template": "shield",
+        "context": {}
+    },
+    {
+        "name": "workspace_application",
+        "template": "workspace_application",
+        "context": {}
+    },
+    {
+        "name": "workspace_application-secure",
+        "template": "workspace_application",
+        "context": {
+            "secure_app": true
+        }
+    }
+]

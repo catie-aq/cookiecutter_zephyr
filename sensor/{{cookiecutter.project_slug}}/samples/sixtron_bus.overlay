@@ -14,17 +14,18 @@
 &sixtron_i2c {
     status = "okay";
 
-    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@XX {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@0 {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
-        reg = <0xXX>;
+        reg = <0x0>; /* TODO: sensor I2C address */
     };
 {%- elif cookiecutter.bus == "SPI" %}
 &sixtron_spi {
     status = "okay";
 
-    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@X {
+    {{cookiecutter.__reference_dash}}: {{cookiecutter.__reference_snake}}@0 {
         compatible = "{{cookiecutter.vendor_prefix}},{{cookiecutter.__reference_dash}}";
-        reg = <X>;
+        reg = <0>; /* TODO: chip select */
+        spi-max-frequency = <1000000>; /* TODO: sensor max SPI frequency */
     };
 {%- elif cookiecutter.bus == "SERIAL" %}
 &sixtron_uart {

@@ -22,7 +22,7 @@ This board enables the following components:
 
 - Update your device tree by adding the `{{cookiecutter.__board_name_snake|upper}}(port)` macro to the `app.overlay` file.\
   Replace `port` with the number of the Zest_Core port to which the shield is connected, e.g.:
-  
+
   ```c
   {{cookiecutter.__board_name_snake|upper}}(1) /* {{cookiecutter.board_name}} connected to Zest_Core first port */
   ```

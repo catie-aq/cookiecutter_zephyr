@@ -6,10 +6,10 @@
 #include <zephyr/dt-bindings/gpio/sixtron-header.h>
 
 /* Defines every peripheral used by the shield */
-#define PERIPHERAL_{{cookiecutter.__board_name_snake|upper}}_ALT(port) 0
+#define PERIPHERAL_{{cookiecutter.__board_name_snake|upper}}_ALT(port)
 
 /* Declare each drivers */
-#define DRIVERS_{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...) 0
+#define DRIVERS_{{cookiecutter.__board_name_snake|upper}}_ALT(inst, port, ...)
 
 /* Defines system wide values for previously declared drivers */
 #define CHOSEN_{{cookiecutter.__board_name_snake|upper}}_ALT(inst) \
